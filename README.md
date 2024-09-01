@@ -24,6 +24,19 @@ If you want just refresh the knowledge of specific area, go stright forward to t
 ### Chapters
 Each chapter is focusing on one specific topic and contain theoretical and practical parts.
 
+```
+chapter_1
+├───media_1
+|   |───image_1.1.PNG
+├───own_1
+|   |───own_1.md
+├───practical_1
+|   |───practical_1.md
+|───theoretical_1
+|   |───theoretical_1.md
+└───instructions_1.md
+```
+
 #### Chapter 1: Scenario
 The whole repository is built around a real-world scenario. Each chapter start with a specific part from this scenario and further provide theoretical notions to understand how to implement this part. Also, almost all chapters contain practical part of implementation to fulfill this part.  
 
