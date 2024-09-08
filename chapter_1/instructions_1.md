@@ -9,7 +9,7 @@
 ## Practice
 **TO DO:** Implement practice part of the chapter.
 
-## Personal
+## Assignment
 **TO DO:** Provide details what to be done for this chapter.
 
 `Work in progress...`
