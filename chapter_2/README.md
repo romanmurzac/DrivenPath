@@ -114,7 +114,7 @@ Create function `generate_record` and provide synthetic function to obtain all n
 Due to the amount of data and number of columns, generated data will be written to a CSV file. For this, create function `write_to_csv`. In this function will specified how many records to be generated.
 ![Image 2.4](../media/image_2.4.PNG)
 
-Each records should be uniquely identified, for this will be added a new column named `unique_id` that will contain [UUID](https://medium.com/@gaspm/understanding-uuid-purpose-and-benefits-of-a-universal-unique-identifier-59110154d897) value. Polars will be used for this activity.
+Each records should be uniquely identified, for this will be added a new column named `unique_id` that will contain [UUID](https://medium.com/@gaspm/understanding-uuid-purpose-and-benefits-of-a-universal-unique-identifier-59110154d897) value. Polars will be used for this activity.\
 ![Image 2.5](../media/image_2.5.PNG)
 
 For historical data the `accessed_at` column contains datetime from previous year. For next load this column should contain only the datetime from previous day. For this action will be created function `update_datetime` that will handle this need for all *next* run.
