@@ -1,10 +1,8 @@
-`Work in progress...`
-
-# Chapter 1 
+# **Chapter 1:** Introduction to Big Data Engineering 
 
 ## Scenario
 You are hired as a **Junior Data Engineer** in **DrivenData** company.\
-The **DrivenData** is a Start-Up that started on the market one year ago. The company provide to their customers the Fibre-optic internet. One year ago, they started with 100 clients and every month they got ~1000 new clients. This year the company prognoses to have ~500 client / month.\
+The **DrivenData** is a Start-Up that started on the market one year ago. The company provide to their customers the Fibre-optic internet. One year ago, they started with ~100 clients and every month they got ~10.000 new clients. This year the company prognoses to have ~50.000 client / month.\
 The company for which you were hired work in sprints with length of 2 weeks. They use *git* for version control and *GitHub* as a cloud-based platform where they store, share, and work together with all departments to write code. Their services are deployed in cloud and as a cloud provider they use *Amazon Web Services (AWS)*.
 
 ## Assignment
@@ -25,7 +23,7 @@ For current Sprint / Chapter your tasks are:
         iV. pgAdmin4.\
         v. AWS CLI.\
         vi. Terraform.
-3. **Work** for *DataDriven* company on Sprint / Chapter tasks:\
+3. **Work** for *LeadData* company on Sprint / Chapter tasks:\
 **Note:** For point 3 implementation, read current part for chosen scenario from `scenarios` directory and put all your work evidences in `work_1` directory.\
     a. Create Account:\
         i. AWS.\
