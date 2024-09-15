@@ -12,12 +12,12 @@ For current Sprint / Chapter your tasks are:
     d. Python.\
     e. SQL.\
     f. Framework.
-2. **Implement** from [Practice](#practice) section for *LeadData* company:\
+2. **Implement** from [Practice](#practice) section for *DataDriven* company:\
     a. Investigate data source.\
     b. Extract data.\
     c. Transform data.\
     d. Load data.
-3. **Work** for *DataDriven* company on Sprint / Chapter tasks:\
+3. **Work** for *LeadData* company on Sprint / Chapter tasks:\
 **Note:** For point 3 (*Work*) implementation, read current part for chosen scenario from `scenarios` directory and put all your work evidences in `work_2` directory.
 
 ## Theory
