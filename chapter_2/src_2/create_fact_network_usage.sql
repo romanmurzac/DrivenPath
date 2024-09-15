@@ -1,4 +1,4 @@
-CREATE TABlE
+CREATE TABLE
 	silver_layer.fact_network_usage AS
 SELECT
 	unique_id,

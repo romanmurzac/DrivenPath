@@ -1,4 +1,4 @@
-CREATE TABlE
+CREATE TABLE
 	silver_layer.dim_person AS
 SELECT
 	unique_id,
