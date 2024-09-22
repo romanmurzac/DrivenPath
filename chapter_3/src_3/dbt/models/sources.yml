@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  name: raw_source
+  database: airflow
+  schema: driven_raw
+  tables:
+    name: raw_batch_data
+
+  name: staging_source
+  database: airflow
+  schema: driven_staging
+  tables:
+    name: dim_address
+    name: dim_data
+    name: dim_finance
+    name: fact_network_usage
+
