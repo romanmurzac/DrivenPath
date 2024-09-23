@@ -1,7 +1,8 @@
 {{ config(
     materialized='table',
     schema='staging',
-    alias='dim_address'
+    alias='dim_address',
+    tags=['staging']
 ) }}
 
 WITH source_data AS (

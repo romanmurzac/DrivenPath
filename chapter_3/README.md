@@ -36,7 +36,7 @@ For current Sprint / Chapter your tasks are:
     c. Create Airflow:
     * i. Run containers.
     * ii. Login.
-    * iii. Setup Connetion.
+    * iii. Setup Connection.
     * iv. Create DAG.
     * v. Run DAG.
 
@@ -164,7 +164,7 @@ Add `dbt` and `data` directories to be created and to be readable in container (
 Now `docker-compose.yml` file is customized based on project needs.
 
 #### Add requirements
-Create a file `requirements.txt` and copy in it the content from below.\
+Create a file `requirements.txt` and copy in it the content from below.
 ```
 dbt-core==1.8.0
 dbt-postgres==1.8.2
@@ -173,6 +173,7 @@ faker==18.4.0
 
 #### Create Dockerfile
 As for current project the custom image is needed, create a `Dockerfile` and paste in it the content from below.\
+It use `apache/airflow` image as a start point and customize it. Using `airflow` user, copy the `requirements.txt` into the container and install all dependencies from the file into the container. Copy the content of the `dbt` directory to the container.
 ```
 # Use the official Airflow image as a template.
 FROM apache/airflow:2.10.2
@@ -213,7 +214,7 @@ model-paths: ["models"]
 
 #### Create profiles
 In `dbt` directory create a file named `profiles.yml` and copy the content from below.
-It will define the *default* profile used in project with *dev* environment only. Also, here are defined characteristics of the database.
+It will define the *default* profile used in project with *dev* environment only. Also, here are defined characteristics of the database, including schema prefix `driven`.
 ```
 default:
   target: dev
@@ -234,11 +235,29 @@ In `dbt/models` create a file named `source.yml` and copy the content from below
 version: 2
 
 sources:
-    name: raw_source
-    database: airflow
-    schema: driven_raw
-    tables:
-      name: raw_batch_data
+  name: raw_source
+  database: airflow
+  schema: raw
+  tables:
+    name: raw_batch_data
+
+  name: staging_source
+  database: airflow
+  schema: staging
+  tables:
+    name: dim_address
+    name: dim_data
+    name: dim_finance
+    name: fact_network_usage
+
+  name: trusted_source
+  database: airflow
+  schema: trusted
+  tables:
+    name: payment_data
+    name: technical_data
+    name: non_pii_data
+    name: pii_data
 ```
 
 #### Create models
@@ -247,7 +266,8 @@ In `dbt/models` create a file named `staging_dim_address.sql` and copy the conte
 {{ config(
     materialized='table',
     schema='staging',
-    alias='dim_address'
+    alias='dim_address',
+    tags=['staging']
 ) }}
 
 WITH source_data AS (
@@ -271,7 +291,8 @@ In `dbt/models` create a file named `staging_dim_data.sql` and copy the content 
 {{ config(
     materialized='table',
     schema='staging',
-    alias='dim_data'
+    alias='dim_data',
+    tags=['staging']
 ) }}
 
 WITH source_data AS (
@@ -293,7 +314,8 @@ In `dbt/models` create a file named `staging_dim_finance.sql` and copy the conte
 {{ config(
     materialized='table',
     schema='staging',
-    alias='dim_finance'
+    alias='dim_finance',
+    tags=['staging']
 ) }}
 
 WITH source_data AS (
@@ -315,7 +337,8 @@ In `dbt/models` create a file named `staging_dim_person.sql` and copy the conten
 {{ config(
     materialized='table',
     schema='staging',
-    alias='dim_person'
+    alias='dim_person',
+    tags=['staging']
 ) }}
 
 WITH source_data AS (
@@ -342,7 +365,8 @@ In `dbt/models` create a file named `staging_fact_network_usage.sql` and copy th
 {{ config(
     materialized='table',
     schema='staging',
-    alias='fact_network_usage'
+    alias='fact_network_usage',
+    tags=['staging']
 ) }}
 
 WITH source_data AS (
@@ -361,3 +385,226 @@ SELECT
 FROM
     source_data
 ```
+
+In `dbt/models` create a file named `trusted_payment_data.sql` and copy the content from below.
+```
+{{ config(
+    materialized='table',
+    schema='trusted',
+    alias='payment_data',
+    tags=['trusted']
+) }}
+
+WITH source_data AS (
+    SELECT
+        fnu.unique_id,
+        df.iban,
+        fnu.download_speed,
+        fnu.upload_speed,
+        fnu.session_duration,
+        fnu.consumed_traffic,
+        ((fnu.download_speed + fnu.upload_speed + 1)/2) + (fnu.consumed_traffic / (fnu.session_duration + 1)) AS payment_amount
+    FROM
+        {{ source('staging_source', 'fact_network_usage') }} fnu
+    JOIN
+        {{ source('staging_source', 'dim_finance') }} df
+    ON
+	    fnu.unique_id = df.unique_id
+)
+
+SELECT
+    *
+FROM
+    source_data
+```
+
+In `dbt/models` create a file named `trusted_technical_data.sql` and copy the content from below.
+```
+{{ config(
+    materialized='table',
+    schema='trusted',
+    alias='technical_data',
+    tags=['trusted']
+) }}
+
+WITH source_data AS (
+    SELECT
+        fnu.unique_id,
+        da.address,
+        da.mac_address,
+        da.ip_address,
+        fnu.download_speed,
+        fnu.upload_speed,
+        ROUND((fnu.session_duration/60), 1) as min_session_duration,
+        CASE 
+            WHEN fnu.download_speed < 50 OR fnu.upload_speed < 30 OR fnu.session_duration/60 < 1 THEN true
+            ELSE false
+        END AS technical_issue
+    FROM
+        {{ source('staging_source', 'fact_network_usage') }} fnu
+    JOIN
+        {{ source('staging_source', 'dim_address') }} da
+    ON
+	    fnu.unique_id = da.unique_id
+)
+
+SELECT
+    *
+FROM
+    source_data
+```
+
+In `dbt/models` create a file named `trusted_non_pii_data.sql` and copy the content from below.
+```
+{{ config(
+    materialized='table',
+    schema='trusted',
+    alias='non_pii_data',
+    tags=['trusted']
+) }}
+
+WITH source_data AS (
+    SELECT
+        '***MASKED***' AS person_name,
+        SUBSTRING(dp.user_name, 1, 5) || '*****'  user_name,
+        SUBSTRING(dp.email, 1, 5) || '*****' AS email,
+        '***MASKED***'  AS personal_number, 
+        '***MASKED***' AS birth_date, 
+        '***MASKED***' AS address,
+        '***MASKED***'  AS phone, 
+        SUBSTRING(da.mac_address, 1, 5) || '*****' AS mac_address,
+        SUBSTRING(da.ip_address, 1, 5) || '*****' AS ip_address,
+        SUBSTRING(df.iban, 1, 5) || '*****' AS iban,
+        dd.accessed_at,
+        fnu.session_duration,
+        fnu.download_speed,
+        fnu.upload_speed,
+        fnu.consumed_traffic,
+        fnu.unique_id
+    FROM
+        {{ source('staging_source', 'fact_network_usage') }} fnu
+    INNER JOIN
+        {{ source('staging_source', 'dim_address') }} da ON fnu.unique_id = da.unique_id
+    INNER JOIN
+        {{ source('staging_source', 'dim_date') }} dd ON da.unique_id = dd.unique_id
+    INNER JOIN
+        {{ source('staging_source', 'dim_finance') }} df ON dd.unique_id = df.unique_id
+    INNER JOIN
+        {{ source('staging_source', 'dim_person') }} dp ON df.unique_id = dp.unique_id
+)
+
+SELECT
+    *
+FROM
+    source_data
+```
+
+In `dbt/models` create a file named `trusted_pii_data.sql` and copy the content from below.
+```
+{{ config(
+    materialized='table',
+    schema='trusted',
+    alias='pii_data',
+    tags=['trusted']
+) }}
+
+WITH source_data AS (
+    SELECT
+        dp.person_name,
+        dp.user_name,
+        dp.email,
+        dp.personal_number, 
+        dp.birth_date, 
+        da.address,
+        dp.phone, 
+        da.mac_address,
+        da.ip_address,
+        df.iban,
+        dd.accessed_at,
+        fnu.session_duration,
+        fnu.download_speed,
+        fnu.upload_speed,
+        fnu.consumed_traffic,
+        fnu.unique_id
+    FROM
+        {{ source('staging_source', 'fact_network_usage') }} fnu
+    INNER JOIN
+        {{ source('staging_source', 'dim_address') }} da ON fnu.unique_id = da.unique_id
+    INNER JOIN
+        {{ source('staging_source', 'dim_date') }} dd ON da.unique_id = dd.unique_id
+    INNER JOIN
+        {{ source('staging_source', 'dim_finance') }} df ON dd.unique_id = df.unique_id
+    INNER JOIN
+        {{ source('staging_source', 'dim_person') }} dp ON df.unique_id = dp.unique_id
+)
+
+SELECT
+    *
+FROM
+    source_data
+```
+
+### Create Airflow
+Once all previous stages are completed the project is in the same state as in *testing environment* where each part can be executed manually and individual. To promote the project to *develop environment* it will use Apache Airflow to orchestrate and manage the pipeline. In Airflow the pipeline is consisting from a DAG. Inside the DAG will be executed tasks that represent each stage that previously was executed manually. In this way it will manage dependencies between tasks and will succeed only if all tasks will succeed.
+
+#### Run containers
+To run the Airflow it is needed to run the Docker Containers that were created previously via `docker-compose.yml` and `Dockerfile` where the Airflow was setup.\
+Make sure that the Docker Desktop is running. In VS Code open a terminal, make sure that you're in correct directory: `chapter_3/src_3`.
+```
+cd src_3
+```
+To build image and run Docker Compose use the command below.
+```
+docker-compose up --build
+```
+We should see execution of all steps from the `Dockerfile`.
+![Image 3.5](../media/image_3.5.PNG)
+
+At the end of the building process you should see the *booting worker with pid* message. If you don't see the logs from the image below or have an error, please review previous steps of Docker setup.
+![Image 3.6](../media/image_3.6.PNG)
+
+Now in Docker Desktop you should see a suite of seven containers under name `chapter_3`.
+![Image 3.7](../media/image_3.7.PNG)
+
+Also, now in Docker Desktop you should see a suite of seven images.
+![Image 3.8](../media/image_3.8.PNG)
+
+Also, in Docker Desktop you should see the volume attached to the database.
+![Image 3.9](../media/image_3.9.PNG)
+
+**Note:** If you want to rebuild the infrastructure, you have two main option: to remove only the containers and keep the volume with saved data in it or to remove containers and volume.\
+To remove container use command below.
+```
+docker-compose down
+```
+To remove volumes use command below.
+```
+docker-compose down -v
+```
+The terminal will show logs from the image below and in Docker Container should be deleted all containers and volumes.
+![Image 3.10](../media/image_3.10.PNG)
+
+#### Login
+Once all previous steps are done and the containers are up and running, access the Airflow local using `localhost:8080` address in your browser.\
+Login with username `airflow` and password `airflow`.
+![Image 3.11](../media/image_3.11.PNG)
+
+After successful login you'll see the Airflow interface where will be displayed DAGs and in `Admin` menu option are `Variables` and `Connections` options that will be used.
+![Image 3.12](../media/image_3.12.PNG)
+
+#### Setup Connection
+Navigate to `Admin`->`Connection` menu and create new connection. Complete all fields as in image below.
+![Image 3.13](../media/image_3.13.PNG)
+
+#### Create DAG
+Create `driven_data_pipeline.py` file in `src_3/dags` directory.
+
+
+#### Run DAG
+
+
+### Setup pgAdmin 4 database
+
+#### Connect to database
+
+#### Check data in pipeline
