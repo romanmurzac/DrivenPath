@@ -42,7 +42,7 @@ For current Sprint / Chapter your tasks are:
 
     d. Setup pgAdmin 4 database:
     * i. Connect to database.
-    * ii. Check data in pipeline.
+    * ii. Check data in database.
 
 3. **Work** for *LeadData* company on Sprint / Chapter tasks:\
 **Note:** For point 3 (*Work*) implementation, read current part for individual scenario from `work_3/scenario_3.md` file and put all your work evidences in `work_3` directory.
@@ -735,7 +735,7 @@ Run *pgAdmin 4* and connect to the `airflow` database.
 Create a server and name it `airflow`. In this server create a database and name it `airflow` with the parameters from the image below.
 ![Image 3.20](../media/image_3.20.PNG)
 
-#### Check data in pipeline
+#### Check data in database
 In the `airflow` database navigate to `Schemas` it will be present all created schemas: `driven_raw`, `driven_staging`, and `driven_trusted` and in each schema are presented specific tables.
 ![Image 3.21](../media/image_3.21.PNG)
 
