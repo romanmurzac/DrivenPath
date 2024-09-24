@@ -1,7 +1,7 @@
 {{ config(
     materialized='table',
     schema='staging',
-    alias='dim_data',
+    alias='dim_date',
     tags=['staging']
 ) }}
 

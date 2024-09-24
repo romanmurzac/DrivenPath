@@ -136,6 +136,9 @@ def _update_datetime() -> None:
 
 
 def save_raw_data():
+    '''
+    Execute all steps for data generation.
+    '''
     # Logging starting of the process.
     logging.info(f"Started batch processing for {date.today()}.")
     # Generate and write records to the CSV.
@@ -189,8 +192,8 @@ create_raw_table_task = SQLExecuteQueryOperator(
             person_name VARCHAR(100),
             user_name VARCHAR(100),
             email VARCHAR(100),
-            personal_number INT, 
-            birth_date DATE, 
+            personal_number NUMERIC, 
+            birth_date VARCHAR(100), 
             address VARCHAR(100),
             phone VARCHAR(100), 
             mac_address VARCHAR(100),
@@ -201,7 +204,7 @@ create_raw_table_task = SQLExecuteQueryOperator(
             download_speed INT,
             upload_speed INT,
             consumed_traffic INT,
-            unique_id UUID
+            unique_id VARCHAR(100)
         );
     """,
     dag=dag

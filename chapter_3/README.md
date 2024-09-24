@@ -169,6 +169,7 @@ Create a file `requirements.txt` and copy in it the content from below.
 dbt-core==1.8.0
 dbt-postgres==1.8.2
 faker==18.4.0
+polars==1.8.1
 ```
 
 #### Create Dockerfile
@@ -235,29 +236,30 @@ In `dbt/models` create a file named `source.yml` and copy the content from below
 version: 2
 
 sources:
-  name: raw_source
-  database: airflow
-  schema: raw
-  tables:
-    name: raw_batch_data
+  - name: raw_source
+    database: airflow
+    schema: driven_raw
+    tables:
+      - name: raw_batch_data
 
-  name: staging_source
-  database: airflow
-  schema: staging
-  tables:
-    name: dim_address
-    name: dim_data
-    name: dim_finance
-    name: fact_network_usage
+  - name: staging_source
+    database: airflow
+    schema: driven_staging
+    tables:
+      - name: dim_address
+      - name: dim_date
+      - name: dim_finance
+      - name: dim_person
+      - name: fact_network_usage
 
-  name: trusted_source
-  database: airflow
-  schema: trusted
-  tables:
-    name: payment_data
-    name: technical_data
-    name: non_pii_data
-    name: pii_data
+  - name: trusted_source
+    database: airflow
+    schema: driven_trusted
+    tables:
+      - name: payment_data
+      - name: technical_data
+      - name: non_pii_data
+      - name: pii_data
 ```
 
 #### Create models
@@ -286,12 +288,12 @@ FROM
     source_data
 ```
 
-In `dbt/models` create a file named `staging_dim_data.sql` and copy the content from below.
+In `dbt/models` create a file named `staging_dim_date.sql` and copy the content from below.
 ```
 {{ config(
     materialized='table',
     schema='staging',
-    alias='dim_data',
+    alias='dim_date',
     tags=['staging']
 ) }}
 
@@ -589,7 +591,7 @@ Once all previous steps are done and the containers are up and running, access t
 Login with username `airflow` and password `airflow`.
 ![Image 3.11](../media/image_3.11.PNG)
 
-After successful login you'll see the Airflow interface where will be displayed DAGs and in `Admin` menu option are `Variables` and `Connections` options that will be used.
+After successful login you'll see the Airflow interface where will be displayed DAGs and in `Admin` menu is `Connections` option that will be used.
 ![Image 3.12](../media/image_3.12.PNG)
 
 #### Setup Connection
@@ -597,14 +599,147 @@ Navigate to `Admin`->`Connection` menu and create new connection. Complete all f
 ![Image 3.13](../media/image_3.13.PNG)
 
 #### Create DAG
-Create `driven_data_pipeline.py` file in `src_3/dags` directory.
+Create `driven_data_pipeline.py` file in `src_3/dags` directory.\
+Define default arguments and the DAG parameters.
+```
+# Define the default arguments for DAG.
+default_args = {
+    'owner': 'airflow',
+    'depends_on_past': False,
+    'retries': 0,
+}
 
+# Define the DAG.
+dag = DAG(
+    'extract_raw_data_pipeline',
+    default_args=default_args,
+    description='DataDriven Main Pipeline.',
+    schedule_interval="* 7 * * *",
+    start_date=datetime(2024, 9, 22),
+    catchup=False,
+)
+```
+
+Define task for data extraction using Python Operator.
+```
+# Define extract raw data task.
+extract_raw_data_task = PythonOperator(
+    task_id='extract_raw_data',
+    python_callable=save_raw_data,
+    dag=dag,
+)
+```
+
+Define task for raw schema creation, raw table data, and populate table in database with data from the CSV file using SQL Operator.
+```
+# Define create raw schema task.
+create_raw_schema_task = SQLExecuteQueryOperator(
+    task_id='create_raw_schema',
+    conn_id='postgres_conn',
+    sql='CREATE SCHEMA IF NOT EXISTS driven_raw;',
+    dag=dag,
+)
+
+# Define create raw table task.
+create_raw_table_task = SQLExecuteQueryOperator(
+    task_id='create_raw_table',
+    conn_id='postgres_conn',
+    sql="""
+        CREATE TABLE IF NOT EXISTS driven_raw.raw_batch_data (
+            person_name VARCHAR(100),
+            user_name VARCHAR(100),
+            email VARCHAR(100),
+            personal_number NUMERIC, 
+            birth_date VARCHAR(100), 
+            address VARCHAR(100),
+            phone VARCHAR(100), 
+            mac_address VARCHAR(100),
+            ip_address VARCHAR(100),
+            iban VARCHAR(100),
+            accessed_at TIMESTAMP,
+            session_duration INT,
+            download_speed INT,
+            upload_speed INT,
+            consumed_traffic INT,
+            unique_id VARCHAR(100)
+        );
+    """,
+    dag=dag
+)
+
+# Define load CSV data into the table task.
+load_raw_data_task = SQLExecuteQueryOperator(
+    task_id='load_raw_data',
+    conn_id='postgres_conn',
+    sql="""
+    COPY driven_raw.raw_batch_data(
+    person_name, user_name, email, personal_number, birth_date,
+    address, phone, mac_address, ip_address, iban, accessed_at,
+    session_duration, download_speed, upload_speed, consumed_traffic, unique_id
+    ) 
+    FROM '/opt/airflow/data/raw_data.csv' 
+    DELIMITER ',' 
+    CSV HEADER;
+    """
+)
+```
+
+Run dbt models for staging and trusted zones by running taging models with specific tag using Bash Operator.
+```
+# Define staging dbt models run task.
+run_dbt_staging_task = BashOperator(
+    task_id='run_dbt_staging',
+    bash_command='set -x; cd /opt/airflow/dbt && dbt run --select tag:staging',
+)
+
+# Define trusted dbt models run task.
+run_dbt_trusted_task = BashOperator(
+    task_id='run_dbt_trusted',
+    bash_command='set -x; cd /opt/airflow/dbt && dbt run --select tag:trusted',
+)
+```
+
+Define tasks running dependecies. Extracting data and create raw schema are independent and can be created in parallel, rest of the tasks are dependent and will run in series.
+```
+# Set the task in the DAG
+[extract_raw_data_task, create_raw_schema_task] >> create_raw_table_task
+create_raw_table_task >> load_raw_data_task >> run_dbt_staging_task
+run_dbt_staging_task >> run_dbt_trusted_task
+```
+
+The full content of the DAG can be found in `src_3/dags` directory. After saving the file, as a result the DAG will be displayed in the Airflow environment.
+![Image 3.14](../media/image_3.14.PNG)
+
+Click on the DAG name and access it. In the DAG you'll see the tasks defined in DAG file as a column. In `Graph` section can be seen the schema of execution of the tasks
+![Image 3.15](../media/image_3.15.PNG)
 
 #### Run DAG
+Play the DAG and it will run automatically at scheduled time, in this case it will run at 07:00 AM every day.
+![Image 3.16](../media/image_3.16.PNG)
 
+After running the DAG, click on specific task and access the `Logs` section and you can see the logs of execution.
+![Image 3.17](../media/image_3.17.PNG)
+
+For dbt tasks you can see the that for each task from all available models were run only the models with specific tag.
+![Image 3.18](../media/image_3.18.PNG)
+
+For each task can be seen the execution time.
+![Image 3.19](../media/image_3.19.PNG)
 
 ### Setup pgAdmin 4 database
+Now, after the pipeline is up and running on daily basis, the data are available for using for further consumtion.
+The data are available in trusted zone in four tables defined in `Chapter 2`.
+Run *pgAdmin 4* and connect to the `airflow` database.
 
 #### Connect to database
+Create a server and name it `airflow`. In this server create a database and name it `airflow` with the parameters from the image below.
+![Image 3.20](../media/image_3.20.PNG)
 
 #### Check data in pipeline
+In the `airflow` database navigate to `Schemas` it will be present all created schemas: `driven_raw`, `driven_staging`, and `driven_trusted` and in each schema are presented specific tables.
+![Image 3.21](../media/image_3.21.PNG)
+
+Now, using the queries from `Chapter 2`, just changing schema name, the database can be queried and used for company further work.
+![Image 3.22](../media/image_3.22.PNG)
+
+As the Airflow pipeline is up and running on daily basis at 07:00 AM based on schedule, the fresh data will be available before required time, 08:00 AM every day.
