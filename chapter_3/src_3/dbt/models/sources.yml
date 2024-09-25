@@ -1,0 +1,27 @@
+version: 2
+
+sources:
+  - name: raw_source
+    database: airflow
+    schema: driven_raw
+    tables:
+      - name: raw_batch_data
+
+  - name: staging_source
+    database: airflow
+    schema: driven_staging
+    tables:
+      - name: dim_address
+      - name: dim_date
+      - name: dim_finance
+      - name: dim_person
+      - name: fact_network_usage
+
+  - name: trusted_source
+    database: airflow
+    schema: driven_trusted
+    tables:
+      - name: payment_data
+      - name: technical_data
+      - name: non_pii_data
+      - name: pii_data
