@@ -316,3 +316,4 @@ LIMIT
 
 ## Note
 **Delete** all deployed resources after finishing the chapter as AWS Cloud resources are not free!
+![Image 4.37](../media/image_4.37.PNG)
