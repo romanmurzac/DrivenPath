@@ -31,7 +31,7 @@ For current Sprint / Chapter your tasks are:
     * vi. Run Terraform destroy.
 
 3. **Work** for *LeadData* company on Sprint / Chapter tasks:\
-**Note:** For point 3 implementation, read current part of scenario from `scenario_5.md` file and put all your work evidences in `work_5` directory.
+Read chapter *Scenario*, implement all stages from *Assignment* from `work_5/scenario_5.md` file and put all your work evidences in `work_5` directory.
 
 ## Theory
 Main theoretical notions of the chapter with proper resources for self paced learning.

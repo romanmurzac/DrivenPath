@@ -6,19 +6,32 @@ For second Chapter / Sprint needs to investigate the data source for *DrivenData
 ## Assignment
 For current Sprint / Chapter your tasks are:
 1. **Read** from [Theory](#theory) section about:\
-    a. Batch processing.\
-    b. Extract data.\
-    c. Data normalization.\
-    d. Python.\
-    e. SQL.\
-    f. Framework.
+    a. Extract Tranform Load.\
+    b. Batch processing.\
+    c. Extract data.\
+    d. Data normalization.\
+    e. Python.\
+    f. SQL.\
+    g. Framework.
+
 2. **Implement** from [Practice](#practice) section for *DataDriven* company:\
     a. Investigate data source.\
-    b. Extract data.\
-    c. Transform data.\
-    d. Load data.
+    b. Extract data:
+    * i. Data generator.
+    * ii. Data extraction.
+
+    c. Transform data:
+    * i. Bronze layer.
+    * ii. Silver layer.
+
+    d. Load data:
+    * i. Financial Data.
+    * ii. Support Data.
+    * iii. Non-PII Data.
+    * iv. PII Data.
+
 3. **Work** for *LeadData* company on Sprint / Chapter tasks:\
-**Note:** For point 3 (*Work*) implementation, read current part for chosen scenario from `scenarios` directory and put all your work evidences in `work_2` directory.
+Read chapter *Scenario*, implement all stages from *Assignment* from `work_2/scenario_2.md` file and put all your work evidences in `work_2` directory.
 
 ## Theory
 Main theoretical notions of the chapter with proper resources for self paced learning.

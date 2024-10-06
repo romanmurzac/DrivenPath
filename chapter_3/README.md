@@ -19,7 +19,7 @@ For current Sprint / Chapter your tasks are:
 
     c. dbt.
 
-2. **Implement** from [Practice](#practice) section for *DataDriven* company:\.\
+2. **Implement** from [Practice](#practice) section for *DataDriven* company:\
     a. Setup Docker container:
     * i. Run Docker Desktop.
     * ii. Retrieve Docker Compose file.
@@ -45,7 +45,7 @@ For current Sprint / Chapter your tasks are:
     * ii. Check data in database.
 
 3. **Work** for *LeadData* company on Sprint / Chapter tasks:\
-**Note:** For point 3 (*Work*) implementation, read current part for individual scenario from `work_3/scenario_3.md` file and put all your work evidences in `work_3` directory.
+Read chapter *Scenario*, implement all stages from *Assignment* from `work_3/scenario_3.md` file and put all your work evidences in `work_3` directory.
 
 ## Theory
 Main theoretical notions of the chapter with proper resources for self paced learning.
