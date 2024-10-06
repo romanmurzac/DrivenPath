@@ -40,7 +40,7 @@ For current Sprint / Chapter your tasks are:
     * ii. Query data.
 
 3. **Work** for *LeadData* company on Sprint / Chapter tasks:\
-**Note:** For point 3 implementation, read current part of scenario from `scenario_4.md` file and put all your work evidences in `work_4` directory.
+Read chapter *Scenario*, implement all stages from *Assignment* from `work_4/scenario_4.md` file and put all your work evidences in `work_4` directory.
 
 ## Theory
 Main theoretical notions of the chapter with proper resources for self paced learning.

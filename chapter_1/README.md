@@ -12,29 +12,22 @@ For current Sprint / Chapter your tasks are:
     b. Data Engineer.\
     c. Cloud Computing.\
     d. AWS.
+
 2. **Implement** from [Practice](#practice) section for *DataDriven* company:\
-    a. Create Account:\
-        i. AWS.\
-        ii. GitHub.\
-    b. Install:\
-        i. Python.\
-        ii. VS Code.\
-        iii. Docker Desktop.\
-        iV. pgAdmin4.\
-        v. AWS CLI.\
-        vi. Terraform.
+    a. Create Account:
+    * i. AWS.
+    * ii. GitHub.
+
+    b. Install:
+    * i. Python.
+    * ii. VS Code.
+    * iii. Docker Desktop.
+    * iV. pgAdmin4.
+    * v. AWS CLI.
+    * vi. Terraform.
+
 3. **Work** for *LeadData* company on Sprint / Chapter tasks:\
-**Note:** For point 3 implementation, read current part for chosen scenario from `scenarios` directory and put all your work evidences in `work_1` directory.\
-    a. Create Account:\
-        i. AWS.\
-        ii. GitHub.\
-    b. Install:\
-        i. Python.\
-        ii. VS Code.\
-        iii. Docker Desktop.\
-        iV. pgAdmin4.\
-        v. AWS CLI.\
-        vi. Terraform.
+Read chapter *Scenario*, implement all stages from *Assignment* from `work_1/scenario_1.md` file and put all your work evidences in `work_1` directory.
 
 
 ## Theory
