@@ -1,0 +1,45 @@
+# Name of the GitHub Actions workflow.
+name: DrivenData CI/CD pipeline
+
+# Trigger the workflow on push events only to the 'deploy' branch.
+on:
+  push:
+    branches:
+      - deploy
+
+# Define the job named 'deploy' using the latest version of Ubuntu for the runner.
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    # Define the steps to be executed in this job.
+    steps:
+      # Step to checkout the repository code using the official checkout action.
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Step to set up Terraform using the HashiCorp Terraform setup action.
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.9.7
+
+      # Step to configure AWS credentials using the AWS actions to configure credentials.
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      # Step to initialize Terraform.
+      - name: Initialize Terraform
+        run: terraform init
+
+      # Step to create a Terraform execution plan.
+      - name: Plan Terraform
+        run: terraform plan
+
+      # Step to apply the Terraform plan.
+      - name: Apply Terraform
+        run: terraform apply -auto-approve
