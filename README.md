@@ -34,23 +34,26 @@ In each chapter there are two main directories `src_n` and `work_n`. The `src_n`
 ### Chapter description
 The whole repository is built around a real-world scenario. Each chapter start with a specific part from this scenario and further provide theoretical notions to understand how to implement this part. Also, almost all chapters contain practical part of implementation to fulfill this part.  
 
-#### [Chapter 1: Introduction to Big Data Engineering](chapter_1/README.md)
+#### [Chapter 1: Introduction to Big Data Engineering](chapter_1)
 First chapter contain notions about the Big Data field as theoretical part. Create accounts and install all necessary softwares as practical part. 
 
-#### [Chaper 2: Batch processing - Local Development](chapter_2/README.md)
+#### [Chapter 2: Batch processing - Local Development](chapter_2)
 Second chapter contain notions about ETL, Normalization, Denormalization, and technologies as theoretical part. Extract, transform, and load data as practical part.
 
-#### [Chaper 3: Batch processing - Local Pipeline](chapter_3/README.md)
+#### [Chapter 3: Batch processing - Local Pipeline](chapter_3)
 Third chapter contain notions about Docker and Airflow as theoretical part. Containerize Airflow, database, and dbt as practical part.
 
-#### [Chaper 4: Batch processing - Cloud: Console pipeline](chapter_4/README.md)
+#### [Chapter 4: Batch processing - Cloud: Console Pipeline](chapter_4)
 Fourth chapter contain notions about Amazon Web Services as theoretical part. Setup AWS services and Airflow as practical part.
 
-#### [Chaper 5: Batch processing - Cloud: Automated pipeline](chapter_5/README.md)
+#### [Chapter 5: Batch processing - Cloud: Automated Pipeline](chapter_5)
 Fifth chapter contain notions about IAM and Terraform as theoretical part. Setup IAM role, Terraform for test, and Terraform for pipeline as practical part.
 
-#### [Chaper 6: Batch processing - CI/CD pipeline](chapter_6/README.md)
+#### [Chapter 6: Batch processing - CI/CD Pipeline](chapter_6)
 Sixth chapter contain notions about Continuous Integration and Continuous Deployment, and GitHub Actions as theoretical part. Implement Continuous Integration and Continuous Deployment using GitHub Actions as practical part.
+
+#### [Chapter 7: Streaming processing - Local Pipeline](chapter_7)
+Seventh chapter contain notions about Kafka, producer, consumer, and topic as theoretical part. Containerize Kafka, create custom producer, consumer, and topic, create schema and table in a local database and ingest in real time the data as practical part.
 
 ## Getting Started
 1. Login to GitHub.\
