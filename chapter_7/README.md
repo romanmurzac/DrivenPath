@@ -351,24 +351,18 @@ CREATE TABLE IF NOT EXISTS streaming_layer.streaming_data (
 ```
 
 #### Consume data
-In *VS Code* terminal run the command from below and it should start to produce data.
-```
-python streaming_producer.py
-```
-![Image 7.10](../media/image_7.10.PNG)
-
 In *VS Code* terminal run the command from below and it should start to ingest data.
 ```
 python streaming_consumer.py
 ```
-![Image 7.11](../media/image_7.11.PNG)
+![Image 7.10](../media/image_7.10.PNG)
 
 ### Setup database
 The database used will be the same as for batch processing - *drivendata_db*.
 
 #### Prepare database
 In database *drivendata_db* are already created schemas for bacth processing that are deleted for now to not confuse the process. So, now it is available only *public* schema.
-![Image 7.12](../media/image_7.12.PNG)
+![Image 7.11](../media/image_7.11.PNG)
 
 #### Check data
 After running the *streaming_consumer.py* that also handle schema and table creation and start to ingest data in real-time the schema and the table are available in *pgAdmin 4*. Use query from below to see data in *streaming_data* table.
@@ -378,7 +372,7 @@ SELECT
 FROM
     streaming_layer.streaming_data
 ```
-![Image 7.13](../media/image_7.13.PNG)
+![Image 7.12](../media/image_7.12.PNG)
 
 Use query from below to see the number of records in database in real-time.
 ```
@@ -387,14 +381,14 @@ SELECT
 FROM
     streaming_layer.streaming_data
 ```
-![Image 7.14](../media/image_7.14.PNG)
+![Image 7.13](../media/image_7.13.PNG)
 
 Run the same query again after few seconds, as each records is produced at interval of 1-15 seconds, and there should be constantly increasing number of records.
-![Image 7.15](../media/image_7.15.PNG)
+![Image 7.14](../media/image_7.14.PNG)
 
 ### Stop streaming
 The sreaming process is a continuous process, but because it was run locally it need to be stopped before exit from the development environment. To stop the streaming process use the command from below.
 ```
 docker stop $(docker ps -q)
 ```
-![Image 7.16](../media/image_7.16.PNG)
+![Image 7.15](../media/image_7.15.PNG)
