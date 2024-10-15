@@ -3,4 +3,4 @@ venv
 .terraform.lock.hcl
 terraform.tfstate
 terraform.tfstate.backup
-venv
+*.docx
