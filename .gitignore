@@ -4,3 +4,4 @@ venv
 terraform.tfstate
 terraform.tfstate.backup
 *.docx
+__pycache__/
