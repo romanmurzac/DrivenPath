@@ -6,9 +6,6 @@ from dash import dcc, html
 from dash.dependencies import Input, Output
 from sqlalchemy import create_engine
 
-# Load data from a CSV file into pandas DataFrame.
-# df = pd.read_csv('./chapter_2/src_2/data_2/batch_2024-09-15.csv')
-
 # Database connection setup.
 db_config = {
     'dbname': 'drivendata_db',

@@ -6,7 +6,7 @@ import plotly.express as px
 from dash import dcc, html
 from dash.dependencies import Input, Output
 
-
+# Define Athena connection.
 client = boto3.client('athena')
 df = client.start_query_execution(
     QueryString="SELECT * FROM streaming_layer.streaming_data",
@@ -160,4 +160,4 @@ def update_pie_chart(selected_parameter):
 
 # Run the Dash app.
 if __name__ == '__main__':
-    app.run_server(debug=True, host='0.0.0.0', port=8050)
+    app.run_server(debug=False, host='0.0.0.0', port=8050)
