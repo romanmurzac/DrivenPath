@@ -44,7 +44,7 @@ Main theoretical notions of the chapter with proper resources for self paced lea
 ### Streaming processing
 #### Description
 Stream processing is the processing of data in motion, or in other words, computing on data directly as it is produced or received. The majority of data are born as continuous streams: sensor events, user activity on a website, financial trades, and so on – all these data are created as a series of events over time.
-### References
+#### References
 [Splunk - Stream Processing: Definition, Tools, and Challenges](https://www.splunk.com/en_us/blog/learn/stream-processing.html)\
 [nVidia - Stream Processing](https://www.nvidia.com/en-us/glossary/stream-processing/)\
 [Medium - A Gentle Introduction to Stream Processing](https://medium.com/stream-processing/what-is-stream-processing-1eadfca11b97)

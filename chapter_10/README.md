@@ -39,7 +39,7 @@ Main theoretical notions of the chapter with proper resources for self paced lea
 ### Dashboard
 #### Description
 A dashboard is a way of displaying various types of visual data in one place. Usually, a dashboard is intended to convey different, but related information in an easy-to-digest form. And oftentimes, this includes things like key performance indicators or other important business metrics that stakeholders need to see and understand at a glance.
-### References
+#### References
 [Databox - What is a Data Dashboard? Definition, Benefits, and Examples](https://databox.com/data-dashboard)\
 [Tableau - What is a dashboard? A complete overview](https://www.tableau.com/dashboard/what-is-dashboard)\
 [Amplitude - How to Build the Perfect Analytics Dashboard](https://amplitude.com/blog/analytics-dashboard)
@@ -47,7 +47,7 @@ A dashboard is a way of displaying various types of visual data in one place. Us
 ### Dash
 #### Description
 Dash is a popular and trusted Python framework for building interactive web apps with Plotly.js, React and Flask. Learn how to create, style, deploy and scale your Dash apps with tutorials, examples and documentation.
-### References
+#### References
 [Plotly - Dash in 20 Minutes](https://dash.plotly.com/tutorial)\
 [Real Python - Develop Data Visualization Interfaces in Python With Dash](https://realpython.com/python-dash/)\
 [GitHub - Dash](https://github.com/plotly/dash)
@@ -55,14 +55,14 @@ Dash is a popular and trusted Python framework for building interactive web apps
 ### Elastic Container Registry
 #### Description
 Amazon Elastic Container Registry (Amazon ECR) is an AWS managed container image registry service that is secure, scalable, and reliable. Amazon ECR supports private repositories with resource-based permissions using AWS IAM. This is so that specified users or Amazon EC2 instances can access your container repositories and images. You can use your preferred CLI to push, pull, and manage Docker images, Open Container Initiative (OCI) images, and OCI compatible artifacts.
-### References
+#### References
 [AWS - What is Amazon Elastic Container Registry?](https://docs.aws.amazon.com/AmazonECR/latest/userguide/what-is-ecr.html)\
 [AWS - Amazon Elastic Container Registry Documentation](https://docs.aws.amazon.com/ecr/)
 
 ### Cloud App Runner
 #### Description
 AWS App Runner is an AWS service that provides a fast, simple, and cost-effective way to deploy from source code or a container image directly to a scalable and secure web application in the AWS Cloud. You don't need to learn new technologies, decide which compute service to use, or know how to provision and configure AWS resources. App Runner connects directly to your code or image repository. It provides an automatic integration and delivery pipeline with fully managed operations, high performance, scalability, and security.
-### References
+#### References
 [AWS - What is AWS App Runner?](https://docs.aws.amazon.com/apprunner/latest/dg/what-is-apprunner.html)\
 [AWS - AWS App Runner Documentation](https://docs.aws.amazon.com/apprunner/)
 
