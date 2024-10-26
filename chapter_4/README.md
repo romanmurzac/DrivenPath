@@ -1,4 +1,6 @@
 # **Chapter 4:** Batch processing - *Cloud: Console pipeline*
+**NOTE:** This chapter involve work with cloud services that are charged by the cloud provider. Consult [AWS Pricing calculator](https://calculator.aws/#/) for forecast of the estimated cost of the services used for current chapter.\
+If you proceed with this chapter this is on your own responsability and the author don't have any responsability for the resulted bill.
 
 ## Scenario
 For fourth Chapter / Sprint needs to consolidate the pipeline that was developed on local machine, optimize pipeline processes, create the Cloud Architecture for the product to be robust and scalable, implement proposed architecture via Console to the AWS Cloud, validate in Cloud the *DataDriven* pipeline.

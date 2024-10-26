@@ -1,4 +1,6 @@
 # **Chapter 9:** Distributed Computing
+**NOTE:** This chapter involve work with cloud services that are charged by the cloud provider. Consult [AWS Pricing calculator](https://calculator.aws/#/) for forecast of the estimated cost of the services used for current chapter.\
+If you proceed with this chapter this is on your own responsability and the author don't have any responsability for the resulted bill.
 
 ## Scenario
 For ninth Chapter / Sprint, as the *DrivenData* company exptect a big amount of data daily and also increasing requests from other departments for different analytics, it is required to process on daily basis data from previous two days from datalake that is stored in S3 bucket and process data by filtering and aggregating and also add aditional columns based on existing ones. After transformations it is required to write data back to the datalake. Check if there are missing values for emails and phone numbers; provide correct datatypes for birth dates and sessions duration; delete duplicated records; provide only the records that are from 2024 and have a session duration was longer than 30 minutes; add column for total consumed bandwith; add a column for activity level of the user; add a column with masked emails; provide data for filtered data for and for grouped data.
@@ -200,31 +202,109 @@ The Google Colab Notebook has the structure available and can run specific secti
 ![Image 9.11](../media/image_9.11.PNG)
 
 ### Develop cloud pipeline
+In order to run the pipeline in cloud it will be created a Glue job that will run the PySpark code. The PySpark code will read the data from S3 bucket and will write to S3 bucket transformed data. To be able to do all these operations there will be needed to be created an IAM role with permissions to read and write to S3 and to run a Glue job.
 
 #### Check raw data
+Navigate to *S3* service in AWS. Create a S3 bucket named `driven-data-bucket` and a directory named `raw_data`. Inside the directory upload raw data for initial load and from one more day.\
 ![Image 9.12](../media/image_9.12.PNG)
 
 #### Create IAM role
+Navigate to *IAM* servive in AWS and choose *Role* section. Create a new role by choosing `AWS service` for the *Trusted entity type*. Select `Glue` option for the *Use case*.\
 ![Image 9.13](../media/image_9.13.PNG)
 
+Choose `AWSGlueConsoleFullAccess` and `AmazonS3FullAccess` policies. The policies should allow access only to run a specific Glue job and to read and write to a specific bucket, for this the policies can be updated accordingly.\
 ![Image 9.14](../media/image_9.14.PNG)
 
+Enter `glue_job_role` for the *Role name* option. Provide a description for the role. Also, check the *Selected trusted entities* and *Add permissions* options.\
 ![Image 9.15](../media/image_9.15.PNG)
 
 #### Create Glue job
+Navigate to *Glue* service in AWS. Select create a new job. In `Job details` menu enter `drivendata_transform` as a name for the Glue job. Provide a description for the job. Select created IAM role for *IAM Role* option. Select rest of the options as per image below.\
 ![Image 9.16](../media/image_9.16.PNG)
 
+In `Script` menu will be provided default PySpark code that should be extended with desired functionality. Copy the code from below and replace the default code.\
 ![Image 9.17](../media/image_9.17.PNG)
+```
+import sys
+from awsglue.transforms import *
+from awsglue.utils import getResolvedOptions
+from pyspark.context import SparkContext
+from awsglue.context import GlueContext
+from awsglue.job import Job
+from awsglue.dynamicframe import DynamicFrame
+from pyspark.sql.functions import col, to_date, when, regexp_replace, expr
+from pyspark.sql.types import IntegerType, DateType
+
+args = getResolvedOptions(sys.argv, ['JOB_NAME'])
+
+sc = SparkContext()
+glueContext = GlueContext(sc)
+spark = glueContext.spark_session
+job = Job(glueContext)
+job.init(args['JOB_NAME'], args)
+
+input_path = "s3://driven-data-bucket/raw_data/"
+dynamic_frame = glueContext.create_dynamic_frame.from_options(
+    connection_type="s3",
+    connection_options={"paths": [input_path]},
+    format="csv",
+    format_options={"withHeader": True}
+)
+
+df = dynamic_frame.toDF()
+
+df = df.na.fill({"email": "unknown@example.com", "phone": "000-000-0000"})
+df = df.withColumn("birth_date", col("birth_date").cast(DateType()))
+df = df.withColumn("session_duration", col("session_duration").cast(IntegerType()))
+df = df.dropDuplicates(subset=["unique_id"])
+
+df_filtered = df.filter((df["session_duration"] > 30) & (to_date(df["accessed_at"]) > "2024-01-01"))
+df_filtered = df_filtered.withColumn("total_bandwidth", col("download_speed") + col("upload_speed"))
+df_filtered = df_filtered.withColumn("activity_level", when(col("session_duration") > 120, "active")
+                                              .when(col("session_duration").between(30, 120), "moderate")
+                                              .otherwise("less_active"))
+df_filtered = df_filtered.withColumn("masked_email", regexp_replace("email", "(\\w{3})\\w+@(\\w+)", "$1***@$2"))
+
+df_grouped = df_filtered.groupBy("person_name").agg({"session_duration": "avg", "consumed_traffic": "sum"})
+
+filtered_dynamic_frame = DynamicFrame.fromDF(df_filtered, glueContext, "filtered_dynamic_frame")
+grouped_dynamic_frame = DynamicFrame.fromDF(df_grouped, glueContext, "grouped_dynamic_frame")
+
+output_path = "s3://driven-data-bucket/transformed_data/"
+
+glueContext.write_dynamic_frame.from_options(
+    frame=filtered_dynamic_frame,
+    connection_type="s3",
+    connection_options={"path": output_path + "filtered/"},
+    format="csv",
+    format_options={"header": True}
+)
+
+glueContext.write_dynamic_frame.from_options(
+    frame=grouped_dynamic_frame,
+    connection_type="s3",
+    connection_options={"path": output_path + "grouped/"},
+    format="csv",
+    format_options={"header": True}
+)
+
+job.commit()
+```
 
 #### Schedule pipeline run
+For the current GLue job access the `Schedule job run` section. Enter `Daily_drivenData_Transform` as a *Name*. Select `Daily` for *Frequency* option. Eneter `8` as *Start hour* and `0` as *Minute of the hour*. Provide a description for the scheduler.\
 ![Image 9.18](../media/image_9.18.PNG)
 
 #### Run Glue job
+As the Glue job is ready to be run, now it will run on daily basis at 08:00 AM. In this section will be displayed all runs of the job with all related informations and logs related to the specific run.\
 ![Image 9.19](../media/image_9.19.PNG)
 
+ Also, the job can be triggered manually by pressing `Run`. After the job was run the output logs can be monitored in *CloudWatch*. Also, it will display the status of each run.\
 ![Image 9.20](../media/image_9.20.PNG)
 
 #### Validate transformed data
+Navigate to *S3* service in AWS and select *driven-data-bucket*. Inside the bucket will be created a new directory named `transformed_data`. Inside of the new directory will be two subdirectories `filtered` and `grouped` where all output files will be stored.\
 ![Image 9.21](../media/image_9.21.PNG)
 
+Access the file inside each subdirectories and download the to validate the data or query them directly in the datalake. Or make them available in the Athena database and make more complex query there for data validation.\
 ![Image 9.22](../media/image_9.22.PNG)

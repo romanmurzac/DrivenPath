@@ -1,5 +1,8 @@
 # **Chapter 5:** Batch processing - *Cloud: Automated pipeline*
 
+**NOTE:** This chapter involve work with cloud services that are charged by the cloud provider. Consult [AWS Pricing calculator](https://calculator.aws/#/) for forecast of the estimated cost of the services used for current chapter.\
+If you proceed with this chapter this is on your own responsability and the author don't have any responsability for the resulted bill.
+
 ## Scenario
 For fifth Chapter / Sprint needs to automate the pipeline that was developed on AWS Cloud via Console. Make the pipeline to be deployed, updated, and destroyed on demand in automated way.
 
