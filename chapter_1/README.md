@@ -1,19 +1,20 @@
 # **Chapter 1:** Introduction to Big Data Engineering 
 
 ## Scenario
-You are hired as a **Junior Data Engineer** in **DrivenData** company.\
-The **DrivenData** is a Start-Up that started on the market one year ago. The company provide to their customers the Fibre-optic internet. One year ago, they started with ~100 clients and every month they got ~10.000 new clients. This year the company prognoses to have ~50.000 client / month.\
-The company for which you were hired work in sprints with length of 2 weeks. They use *git* for version control and *GitHub* as a cloud-based platform where they store, share, and work together with all departments to write code. Their services are deployed in cloud and as a cloud provider they use *Amazon Web Services (AWS)*.
+You have been hired as a **Junior Data Engineer** at **DrivenData**.\
+**DrivenData** is a start-up that entered the market one year ago, providing fiber-optic internet to its customers. Initially, they had around 100 clients, but their customer base has been expanding rapidly. Currently, they add approximately 10,000 new clients each month, and the company projects they will reach around 50,000 clients per month by the end of the year.
+
+The company operates in two-week sprints, uses *Git* for version control, and relies on *GitHub* for collaborative coding and storage across departments. *Amazon Web Services (AWS)* is their cloud provider, where all services are deployed to support the business operations.
 
 ## Assignment
-For current Sprint / Chapter your tasks are:
-1. **Read** from [Theory](#theory) section about:\
+For this Sprint / Chapter your tasks include:
+1. **Read** the following topics in the [Theory](#theory) section:\
     a. Big Data.\
     b. Data Engineer.\
     c. Cloud Computing.\
     d. AWS.
 
-2. **Implement** from [Practice](#practice) section for *DataDriven* company:\
+2. **Implement** the steps in the [Practice](#practice) section for *DataDriven* company:\
     a. Create Account:
     * i. AWS.
     * ii. GitHub.
@@ -26,12 +27,12 @@ For current Sprint / Chapter your tasks are:
     * v. AWS CLI.
     * vi. Terraform.
 
-3. **Work** for *LeadData* company on Sprint / Chapter tasks:\
-Read chapter *Scenario*, implement all stages from *Assignment* from `work_1/scenario_1.md` file and put all your work evidences in `work_1` directory.
+3. **Complete** tasks for *LeadData*:
+    * Review the *Scenario* section, complete the stages in the *Assignment*, and document your work in `work_1/scenario_1.md`. Store all evidence of your work in the `work_1` directory.
 
 
 ## Theory
-Main theoretical notions of the chapter with proper resources for self paced learning.
+The main theoretical notions for the chapter along with resources for self-paced learning.
 
 ### Big Data
 #### Description
@@ -66,10 +67,10 @@ Amazon Web Service, or AWS, is an online platform providing cost-effective, scal
 [AWS - Cloud computing with AWS](https://aws.amazon.com/what-is-aws/)
 
 ## Practice
-Implemention for the practical part of the chapter.
+The implemention for the practical part for the chapter.
 
 ### Create Accounts
-Create accounts for the necessary services used in daily work of a Data Engineer.
+Set up accounts for the services commonly used by a data engineer.
 
 #### AWS
 Access [AWS Free Tier](https://aws.amazon.com/free/?gclid=Cj0KCQjwlvW2BhDyARIsADnIe-IgwrWgVraM9DbxPuBhtXrzhDOv1RoLsFkd13_kZDe0KCPqFPb3rjAaAiKSEALw_wcB&trk=9ab5159b-247d-4917-a0ec-ec01d1af6bf9&sc_channel=ps&ef_id=Cj0KCQjwlvW2BhDyARIsADnIe-IgwrWgVraM9DbxPuBhtXrzhDOv1RoLsFkd13_kZDe0KCPqFPb3rjAaAiKSEALw_wcB:G:s&s_kwcid=AL!4422!3!645133561110!e!!g!!create%20aws%20account!19579657595!152087369744&all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all) page and press `Create a Free Account` button in center of the page.\

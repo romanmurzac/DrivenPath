@@ -1,19 +1,18 @@
 # **Chapter 8:** Streaming processing - *Cloud Pipeline*
 
-**NOTE:** This chapter involve work with cloud services that are charged by the cloud provider. Consult [AWS Pricing calculator](https://calculator.aws/#/) for forecast of the estimated cost of the services used for current chapter.\
-If you proceed with this chapter this is on your own responsability and the author don't have any responsability for the resulted bill.
+**NOTE:** This chapter involves working with cloud services that are charged by the cloud provider. Consult the [AWS Pricing Calculator](https://calculator.aws/#/) for a forecast of the estimated cost of the services used in this chapter. If you proceed with this chapter, you do so at your own responsibility, and the author has no responsibility for the resulting bill.
 
 ## Scenario
-For eighth Chapter / Sprint, the streaming data should be productionized and ingested in real time to the datalake in S3 bucket.
+For the eighth chapter/sprint, the streaming data should be productionized and ingested in real time into the data lake stored in an S3 bucket.
 
 ## Assignment
-For current Sprint / Chapter your tasks are:
-1. **Read** from [Theory](#theory) section about:\
+For this Sprint / Chapter your tasks include:
+1. **Read** the following topics in the [Theory](#theory) section:\
     a. Lambda Function.\
     b. Simple Queue Service.\
     c. JSON.
 
-2. **Implement** from [Practice](#practice) section for *DataDriven* company:\
+2. **Implement** the steps in the [Practice](#practice) section for *DataDriven* company:\
     a. Create IAM role.
 
     b. Setup Simple Queue Service:
@@ -34,11 +33,11 @@ For current Sprint / Chapter your tasks are:
     * i. Validate the Simple Queue Service.
     * ii. Validate the S3 data.
 
-3. **Work** for *LeadData* company on Sprint / Chapter tasks:\
-Read chapter *Scenario*, implement all stages from *Assignment* from `work_8/scenario_8.md` file and put all your work evidences in `work_8` directory.
+3. **Complete** tasks for *LeadData*:
+    * Review the *Scenario* section, complete the stages in the *Assignment*, and document your work in `work_8/scenario_8.md`. Store all evidence of your work in the `work_8` directory.
 
 ## Theory
-Main theoretical notions of the chapter with proper resources for self paced learning.
+The main theoretical notions for the chapter along with resources for self-paced learning.
 
 ### Lambda Function
 #### Description

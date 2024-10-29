@@ -1,8 +1,8 @@
 ## Scenario 10
-For tenth Chapter / Sprint, it is required to connect to streaming data and create a dashboard for *LeadData* company that will show in real-time the relation between different available fields.
+For the tenth chapter/sprint, it is required to connect to the streaming data and create a dashboard for the *LeadData* company that will show in real-time the relationship between different available fields.
 
 ## Instructions 10
-Use directory `chapter_10/work_10/` as your project directory for work related to the **Chapter 10** for **LeadData** company.
+Use the directory `chapter_10/work_10/` as your project directory for work related to **Chapter 10** for **LeadData** company.
 
 ## Assignment 10
 a. Create Local Dashbord:

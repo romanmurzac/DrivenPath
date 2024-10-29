@@ -1,8 +1,8 @@
 ## Scenario 6
-For sixth Chapter / Sprint it is required to implement Continuous Integration and Continuous Deployment for *LeadData* pipeline in order to obtain fully automated process.
+For the sixth chapter/sprint, it is required to implement Continuous Integration and Continuous Deployment for the *LeadData* pipeline to establish a fully automated process.
 
 ## Instructions 6
-Use directory `chapter_6/work_6/` as your project directory for work related to the **Chapter 6** for **LeadData** company.
+Use the directory `chapter_6/work_6/` as your project directory for work related to **Chapter 6** for **LeadData** company.
 
 ## Assignment 6
 a. Create GitHub secrets.

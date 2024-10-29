@@ -1,11 +1,11 @@
 # **Chapter 3:** Batch processing - *Local Pipeline*
 
 ## Scenario
-For third Chapter / Sprint needs to create orchestrated pipeline that will allow to run all stages in managed way. The pipeline should run daily and make data available at 08:00 AM. The pipeline should extract data into bronze layer (raw zone) named *driven_raw*, apply necessary transformations into silver layer (staging zone) named *driven_staging*, and upload data to the golden layer (trusted zone) named *driven_trusted* for consumtion in analytical process. It required in golden layer to have four tables: financial table for payment calculation, technical table for technical issue analyze, non-pii table for access for all users with limited access level across the organization, and pii table for users with high access level.
+For the third chapter/sprint, you need to create an orchestrated pipeline that will allow all stages to run in a managed way. The pipeline should run daily and make data available at 08:00 AM. It should extract data into the bronze layer (raw zone) named *driven_raw*, apply necessary transformations into the silver layer (staging zone) named *driven_staging*, and upload data to the golden layer (trusted zone) named *driven_trusted* for consumption in the analytical process. It is required that the golden layer contains four tables: a financial table for payment calculations, a technical table for analyzing technical issues, a non-PII table for access by all users with limited access levels across the organization, and a PII table for users with high access levels.
 
 ## Assignment
-For current Sprint / Chapter your tasks are:
-1. **Read** from [Theory](#theory) section about:\
+For this Sprint / Chapter your tasks include:
+1. **Read** the following topics in the [Theory](#theory) section:\
     a. Docker:
     * i. Docker.
     * ii. Docker compose.
@@ -19,7 +19,7 @@ For current Sprint / Chapter your tasks are:
 
     c. dbt.
 
-2. **Implement** from [Practice](#practice) section for *DataDriven* company:\
+2. **Implement** the steps in the [Practice](#practice) section for *DataDriven* company:\
     a. Setup Docker container:
     * i. Run Docker Desktop.
     * ii. Retrieve Docker Compose file.
@@ -44,11 +44,11 @@ For current Sprint / Chapter your tasks are:
     * i. Connect to database.
     * ii. Check data in database.
 
-3. **Work** for *LeadData* company on Sprint / Chapter tasks:\
-Read chapter *Scenario*, implement all stages from *Assignment* from `work_3/scenario_3.md` file and put all your work evidences in `work_3` directory.
+3. **Complete** tasks for *LeadData*:
+    * Review the *Scenario* section, complete the stages in the *Assignment*, and document your work in `work_3/scenario_3.md`. Store all evidence of your work in the `work_3` directory.
 
 ## Theory
-Main theoretical notions of the chapter with proper resources for self paced learning.
+The main theoretical notions for the chapter along with resources for self-paced learning.
 
 ### Docker
 #### Description

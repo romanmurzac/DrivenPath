@@ -1,8 +1,8 @@
 ## Scenario 5
-For fifth Chapter / Sprint needs to automate the *LeadData* pipeline that was developed on AWS Cloud via Console. Make the pipeline to be deployed, updated, and destroyed on demand in automated way.
+For the fifth chapter/sprint, you need to automate the *LeadData* pipeline that was developed on AWS Cloud via the Console. The pipeline should be capable of being deployed, updated, and destroyed on demand in an automated manner.
 
 ## Instructions 5
-Use directory `chapter_5/work_5/` as your project directory for work related to the **Chapter 5** for **LeadData** company.
+Use the directory `chapter_5/work_5/` as your project directory for work related to **Chapter 5** for **LeadData** company.
 
 ## Assignment 5
 a. Setup AWS Console:

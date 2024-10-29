@@ -1,8 +1,8 @@
 ## Scenario 4
-For fourth Chapter / Sprint needs to consolidate the pipeline that was developed on local machine, optimize pipeline processes, create the Cloud Architecture for the product to be robust and scalable, implement proposed architecture via Console to the AWS Cloud, validate in Cloud the *LeadDriven* pipeline.
+For the fourth chapter/sprint, you need to consolidate the pipeline that was developed on your local machine, optimize the pipeline processes, create the cloud architecture to ensure the product is robust and scalable, implement the proposed architecture via the AWS Console, and validate the *LeadDriven* pipeline in the cloud.
 
 ## Instructions 4
-Use directory `chapter_4/work_4/` as your project directory for work related to the **Chapter 4** for **LeadData** company.
+Use the directory `chapter_4/work_4/` as your project directory for work related to **Chapter 4** for **LeadData** company.
 
 ## Assignment 4
 a. Setup AWS Console:

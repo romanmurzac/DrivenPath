@@ -1,17 +1,16 @@
 # **Chapter 5:** Batch processing - *Cloud: Automated pipeline*
 
-**NOTE:** This chapter involve work with cloud services that are charged by the cloud provider. Consult [AWS Pricing calculator](https://calculator.aws/#/) for forecast of the estimated cost of the services used for current chapter.\
-If you proceed with this chapter this is on your own responsability and the author don't have any responsability for the resulted bill.
+**NOTE:** This chapter involves working with cloud services that are charged by the cloud provider. Consult the [AWS Pricing Calculator](https://calculator.aws/#/) for a forecast of the estimated cost of the services used in this chapter. If you proceed with this chapter, you do so at your own responsibility, and the author has no responsibility for the resulting bill.
 
 ## Scenario
-For fifth Chapter / Sprint needs to automate the pipeline that was developed on AWS Cloud via Console. Make the pipeline to be deployed, updated, and destroyed on demand in automated way.
+For the fifth chapter/sprint, you need to automate the pipeline that was developed on AWS Cloud via the Console. The pipeline should be deployable, updatable, and destroyable on demand in an automated manner.
 
 ## Assignment
-For current Sprint / Chapter your tasks are:
-1. **Read** from [Theory](#theory) section about:\
+For this Sprint / Chapter your tasks include:
+1. **Read** the following topics in the [Theory](#theory) section:\
     a. Terraform.
 
-2. **Implement** from [Practice](#practice) section for *DataDriven* company:\
+2. **Implement** the steps in the [Practice](#practice) section for *DataDriven* company:\
     a. Setup Services:
     * i. Create IAM user.
     * ii. Create Access key.
@@ -33,11 +32,11 @@ For current Sprint / Chapter your tasks are:
     * v. Check deployed pipeline.
     * vi. Run Terraform destroy.
 
-3. **Work** for *LeadData* company on Sprint / Chapter tasks:\
-Read chapter *Scenario*, implement all stages from *Assignment* from `work_5/scenario_5.md` file and put all your work evidences in `work_5` directory.
+3. **Complete** tasks for *LeadData*:
+    * Review the *Scenario* section, complete the stages in the *Assignment*, and document your work in `work_5/scenario_5.md`. Store all evidence of your work in the `work_5` directory.
 
 ## Theory
-Main theoretical notions of the chapter with proper resources for self paced learning.
+The main theoretical notions for the chapter along with resources for self-paced learning.
 
 ### Terraform
 #### Description
