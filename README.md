@@ -105,7 +105,8 @@ The cloud is a powerful resource for developing and deploying products, but it's
 To forecast your expenses for the services you plan to use, access the [AWS Pricing Calculator](https://calculator.aws/#/). Click on **Create Estimate** to begin your calculations.
 ![Acess AWS Calculator.](media/image_0.3.PNG "Acess AWS Calculator")
 
-1. **Select Your Region**: In the **Search by location type** dropdown, choose the region where you intend to deploy your services. This will ensure that pricing reflects the correct geographic area.\
+1. **Select Your Region**: In the **Search by location type** dropdown, choose the region where you intend to deploy your services. This will ensure that pricing reflects the correct geographic area.
+
 2. **Add Services**: Search for the specific AWS services you wish to include in your estimate. After locating a service, click **Configure** to proceed to the configuration options.\
 ![Service Selection.](media/image_0.4.PNG "Service Selection")
 
