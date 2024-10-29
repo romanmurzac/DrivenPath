@@ -1,5 +1,4 @@
 ## Scenario 10
-For seventh Chapter / Sprint it is required to implement Continuous Integration and Continuous Deployment for *LeadData* pipeline in order to obtain fully automated process.
 For tenth Chapter / Sprint, it is required to connect to streaming data and create a dashboard for *LeadData* company that will show in real-time the relation between different available fields.
 
 ## Instructions 10
