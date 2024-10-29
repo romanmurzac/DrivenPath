@@ -41,7 +41,7 @@ For this Sprint / Chapter your tasks include:
     * i. Access Athena.
     * ii. Query data.
 
-3. **Complete** tasks for *LeadData*:
+3. **Complete** tasks for *LeadData* company:
     * Review the *Scenario* section, complete the stages in the *Assignment*, and document your work in `work_4/scenario_4.md`. Store all evidence of your work in the `work_4` directory.
 
 ## Theory

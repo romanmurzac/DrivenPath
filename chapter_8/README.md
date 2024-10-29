@@ -33,7 +33,7 @@ For this Sprint / Chapter your tasks include:
     * i. Validate the Simple Queue Service.
     * ii. Validate the S3 data.
 
-3. **Complete** tasks for *LeadData*:
+3. **Complete** tasks for *LeadData* company:
     * Review the *Scenario* section, complete the stages in the *Assignment*, and document your work in `work_8/scenario_8.md`. Store all evidence of your work in the `work_8` directory.
 
 ## Theory

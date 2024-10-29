@@ -35,7 +35,7 @@ For this Sprint / Chapter your tasks include:
 
     f. Stop streaming.
 
-3. **Complete** tasks for *LeadData*:
+3. **Complete** tasks for *LeadData* company:
     * Review the *Scenario* section, complete the stages in the *Assignment*, and document your work in `work_7/scenario_7.md`. Store all evidence of your work in the `work_7` directory.
 
 ## Theory

@@ -32,7 +32,7 @@ For this Sprint / Chapter your tasks include:
     * v. Check deployed pipeline.
     * vi. Run Terraform destroy.
 
-3. **Complete** tasks for *LeadData*:
+3. **Complete** tasks for *LeadData* company:
     * Review the *Scenario* section, complete the stages in the *Assignment*, and document your work in `work_5/scenario_5.md`. Store all evidence of your work in the `work_5` directory.
 
 ## Theory

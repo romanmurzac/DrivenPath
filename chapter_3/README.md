@@ -44,7 +44,7 @@ For this Sprint / Chapter your tasks include:
     * i. Connect to database.
     * ii. Check data in database.
 
-3. **Complete** tasks for *LeadData*:
+3. **Complete** tasks for *LeadData* company:
     * Review the *Scenario* section, complete the stages in the *Assignment*, and document your work in `work_3/scenario_3.md`. Store all evidence of your work in the `work_3` directory.
 
 ## Theory
