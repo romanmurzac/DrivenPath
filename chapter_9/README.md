@@ -28,7 +28,7 @@ For this Sprint / Chapter your tasks include:
     * iv. Run Glue job.
     * v. Validate transformed data.
 
-3. **Complete** tasks for *LeadData*:
+3. **Complete** tasks for *LeadData* company:
     * Review the *Scenario* section, complete the stages in the *Assignment*, and document your work in `work_9/scenario_9.md`. Store all evidence of your work in the `work_9` directory.
 
 ## Theory

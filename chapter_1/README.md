@@ -27,7 +27,7 @@ For this Sprint / Chapter your tasks include:
     * v. AWS CLI.
     * vi. Terraform.
 
-3. **Complete** tasks for *LeadData*:
+3. **Complete** tasks for *LeadData* company:
     * Review the *Scenario* section, complete the stages in the *Assignment*, and document your work in `work_1/scenario_1.md`. Store all evidence of your work in the `work_1` directory.
 
 

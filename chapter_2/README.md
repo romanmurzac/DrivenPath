@@ -30,7 +30,7 @@ For this Sprint / Chapter your tasks include:
     * iii. Non-PII Data.
     * iv. PII Data.
 
-3. **Complete** tasks for *LeadData*:
+3. **Complete** tasks for *LeadData* company:
     * Review the *Scenario* section, complete the stages in the *Assignment*, and document your work in `work_2/scenario_2.md`. Store all evidence of your work in the `work_2` directory.
 
 ## Theory
