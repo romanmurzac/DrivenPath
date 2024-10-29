@@ -1,5 +1,7 @@
 # **Chapter 10:** Analytics and Vizualization
 
+**NOTE:** This chapter involves working with cloud services that are charged by the cloud provider. Consult the [AWS Pricing Calculator](https://calculator.aws/#/) for a forecast of the estimated cost of the services used in this chapter. If you proceed with this chapter, you do so at your own responsibility, and the author has no responsibility for the resulting bill.
+
 ## Scenario
 For the tenth chapter/sprint, it is required to connect to the streaming data and create a dashboard for the *DrivenData* company. The dashboard should display in real-time the following metrics: the relationship between consumed traffic and a selected field, the person name with the highest value in the selected field, the selected field compared to all data indices, the distribution of the selected field, a histogram of the selected field, and the percentage of users in each age group.
 

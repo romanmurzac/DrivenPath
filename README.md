@@ -8,6 +8,7 @@ Through a scenario-driven approach, users will gain technical skills and underst
 - [Description](#description)
 - [Repository Structure](#repository-structure)
 - [Getting Started](#getting-started)
+- [Cloud Usage](#cloud-usage)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
@@ -98,6 +99,23 @@ git add .
 git commit -m "Chapter <no>: Message with esential changes."
 git push
 ```
+
+## Cloud Usage
+The cloud is a powerful resource for developing and deploying products, but it's important to remember that it comes with costs. Careful planning and management of services can help avoid unexpected expenses.\
+To forecast your expenses for the services you plan to use, access the [AWS Pricing Calculator](https://calculator.aws/#/). Click on **Create Estimate** to begin your calculations.
+![Acess AWS Calculator.](media/image_0.3.PNG "Acess AWS Calculator")
+
+1. **Select Your Region**: In the **Search by location type** dropdown, choose the region where you intend to deploy your services. This will ensure that pricing reflects the correct geographic area.\
+2. **Add Services**: Search for the specific AWS services you wish to include in your estimate. After locating a service, click **Configure** to proceed to the configuration options.\
+![Service Selection.](media/image_0.4.PNG "Service Selection")
+
+3. **Configure Your Services**: Enter details that closely match your expected usage scenarios. Fill out the configuration fields for each service to customize your estimate based on your needs.
+![Service Configuration.](media/image_0.5.PNG "Service Configuration")
+
+4. **Review Calculations**: Once you’ve configured your services, you can view detailed calculations for each component, as well as the total estimated monthly bill.
+![Show Calculations.](media/image_0.6.PNG "Show Calculations")
+
+By following these steps, you can effectively manage your cloud expenses.
 
 ## Contributing
 Contributions are welcome! If you find issues or have ideas for improvements, feel free to fork or clone the repository and submit a pull request.
