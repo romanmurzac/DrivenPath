@@ -1,8 +1,8 @@
 ## Scenario 8
-For eighth Chapter / Sprint it is required to ingest the streaming data in real time to the datalake in S3 bucket.
+For the eighth chapter/sprint, it is required to ingest the streaming data in real time into the data lake stored in an S3 bucket.
 
 ## Instructions 8
-Use directory `chapter_8/work_8/` as your project directory for work related to the **Chapter 8** for **LeadData** company.
+Use the directory `chapter_8/work_8/` as your project directory for work related to **Chapter 8** for **LeadData** company.
 
 ## Assignment 8
 a. Create IAM role.

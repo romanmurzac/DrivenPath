@@ -1,18 +1,18 @@
 # **Chapter 7:** Streaming processing - *Local Pipeline*
 
-## Scenario
-For seventh Chapter / Sprint, as the *DrivenData* company start to grow fast and daily traffic is also growing, there already ~10.000 records per day. This new records, beside batch ingestion need to be ingested in real time for real time analysis and alerting. To achieve this it is required to investigate the data streaming for *DrivenData* and understand the amount of data per time unit. Prepare local ETL pipeline to extract data into streaming layer, in streaming table for consumtion in analytical process.
+## Scenario 7
+For the seventh chapter/sprint, as the *DrivenData* company starts to grow rapidly and daily traffic is increasing, there are currently around 10,000 records generated per day. In addition to batch ingestion, these new records need to be ingested in real-time for analysis and alerting. To achieve this, it is necessary to investigate data streaming for *DrivenData* and understand the amount of data per time unit. Prepare a local ETL pipeline to extract data into a streaming layer, specifically in a streaming table, for consumption in the analytical process.
 
 ## Assignment
-For current Sprint / Chapter your tasks are:
-1. **Read** from [Theory](#theory) section about:\
+For this Sprint / Chapter your tasks include:
+1. **Read** the following topics in the [Theory](#theory) section:\
     a. Streaming processing.\
     b. Kafka.\
     c. Producer.\
     d. Consumer.\
     e. Topic.
 
-2. **Implement** from [Practice](#practice) section for *DataDriven* company:\
+2. **Implement** the steps in the [Practice](#practice) section for *DataDriven* company:\
     a. Setup Kafka:
     * i. Create Docker Compose file.
     * ii. Run Kafka on Docker.
@@ -35,11 +35,11 @@ For current Sprint / Chapter your tasks are:
 
     f. Stop streaming.
 
-3. **Work** for *LeadData* company on Sprint / Chapter tasks:\
-Read chapter *Scenario*, implement all stages from *Assignment* from `work_7/scenario_7.md` file and put all your work evidences in `work_7` directory.
+3. **Complete** tasks for *LeadData*:
+    * Review the *Scenario* section, complete the stages in the *Assignment*, and document your work in `work_7/scenario_7.md`. Store all evidence of your work in the `work_7` directory.
 
 ## Theory
-Main theoretical notions of the chapter with proper resources for self paced learning.
+The main theoretical notions for the chapter along with resources for self-paced learning.
 
 ### Streaming processing
 #### Description

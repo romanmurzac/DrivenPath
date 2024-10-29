@@ -1,18 +1,17 @@
 # **Chapter 6:** Batch processing - *CI/CD pipeline*
 
-**NOTE:** This chapter involve work with cloud services that are charged by the cloud provider. Consult [AWS Pricing calculator](https://calculator.aws/#/) for forecast of the estimated cost of the services used for current chapter.\
-If you proceed with this chapter this is on your own responsability and the author don't have any responsability for the resulted bill.
+**NOTE:** This chapter involves working with cloud services that are charged by the cloud provider. Consult the [AWS Pricing Calculator](https://calculator.aws/#/) for a forecast of the estimated cost of the services used in this chapter. If you proceed with this chapter, you do so at your own responsibility, and the author has no responsibility for the resulting bill.
 
 ## Scenario
-For sixth Chapter / Sprint it is required to implement Continuous Integration and Continuous Deployment for *DrivenData* pipeline in order to obtain fully automated process.
+For the sixth chapter/sprint, it is required to implement Continuous Integration and Continuous Deployment for the *DrivenData* pipeline to establish a fully automated process.
 
 ## Assignment
-For current Sprint / Chapter your tasks are:
-1. **Read** from [Theory](#theory) section about:\
+For this Sprint / Chapter your tasks include:
+1. **Read** the following topics in the [Theory](#theory) section:\
     a. Continuous Integration and Continuous Deployment.
     b. GitHub Actions.
 
-2. **Implement** from [Practice](#practice) section for *DataDriven* company:\
+2. **Implement** the steps in the [Practice](#practice) section for *DataDriven* company:\
     a. Create GitHub secrets.
     b. Setup CI/CD:
     * i. Create deployment branch.
@@ -22,11 +21,11 @@ For current Sprint / Chapter your tasks are:
     * v. Check deployment.
     * vi. Further development.
 
-3. **Work** for *LeadData* company on Sprint / Chapter tasks:\
-Read chapter *Scenario*, implement all stages from *Assignment* from `work_6/scenario_6.md` file and put all your work evidences in `work_6` directory.
+3. **Complete** tasks for *LeadData*:
+    * Review the *Scenario* section, complete the stages in the *Assignment*, and document your work in `work_6/scenario_6.md`. Store all evidence of your work in the `work_6` directory.
 
 ## Theory
-Main theoretical notions of the chapter with proper resources for self paced learning.
+The main theoretical notions for the chapter along with resources for self-paced learning.
 
 ### Continuous Integration and Continuous Deployment
 #### Description

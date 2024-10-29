@@ -1,17 +1,17 @@
-# **Chapter 10:** Dashboard
+# **Chapter 10:** Analytics and Vizualization
 
 ## Scenario
-For tenth Chapter / Sprint, it is required to connect to streaming data and create a dashboard for *DrivenData* company that will show in real-time the relation between consumed traffic and selected field, person name with highest selected field, selected field against all data index, distribution of selected field, histogram of selected field, and percentage of users age group.
+For the tenth chapter/sprint, it is required to connect to the streaming data and create a dashboard for the *DrivenData* company. The dashboard should display in real-time the following metrics: the relationship between consumed traffic and a selected field, the person name with the highest value in the selected field, the selected field compared to all data indices, the distribution of the selected field, a histogram of the selected field, and the percentage of users in each age group.
 
 ## Assignment
-For current Sprint / Chapter your tasks are:
-1. **Read** from [Theory](#theory) section about:\
+For this Sprint / Chapter your tasks include:
+1. **Read** the following topics in the [Theory](#theory) section:\
     a. Dashboard.\
     b. Dash.\
     c. Elastic Container Registry.\
     d. Cloud App Runner.
 
-2. **Implement** from [Practice](#practice) section for *DataDriven* company:\
+2. **Implement** the steps in the [Practice](#practice) section for *DataDriven* company:\
     a. Create Local Dashbord:
     * i. Create dashboard.
     * ii. Add style to dashboard.
@@ -30,11 +30,11 @@ For current Sprint / Chapter your tasks are:
     * iv. Deploy dashboard.
     * v. Test dashboard.
 
-3. **Work** for *LeadData* company on Sprint / Chapter tasks:\
-Read chapter *Scenario*, implement all stages from *Assignment* from `work_10/scenario_10.md` file and put all your work evidences in `work_10` directory.
+3. **Complete** tasks for *LeadData*:
+    * Review the *Scenario* section, complete the stages in the *Assignment*, and document your work in `work_10/scenario_10.md`. Store all evidence of your work in the `work_10` directory.
 
 ## Theory
-Main theoretical notions of the chapter with proper resources for self paced learning.
+The main theoretical notions for the chapter along with resources for self-paced learning.
 
 ### Dashboard
 #### Description

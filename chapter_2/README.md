@@ -1,11 +1,11 @@
 # **Chapter 2:** Batch processing - *Local Development*
 
 ## Scenario
-For second Chapter / Sprint needs to investigate the data source for *DrivenData*, understand the amount of data from previous year, identify available fields and data types. Prepare local ETL pipeline to extract data into bronze layer (raw zone), apply necessary transformations into silver layer (staging zone), and upload data to the golden layer (trusted zone) for consumtion in analytical process. It required in golden layer to have four tables: financial table for payment calculation, technical table for technical issue analyze, non-pii table for access for all users with limited access level across the organization, and pii table for users with high access level.
+For the second chapter/sprint, you need to investigate the data source for *DrivenData*, understand the amount of data from the previous year, and identify available fields and data types. Prepare a local ETL pipeline to extract data into the bronze layer (raw zone), apply necessary transformations into the silver layer (staging zone), and upload data to the golden layer (trusted zone) for consumption in the analytical process. It is required that the golden layer contains four tables: a financial table for payment calculations, a technical table for analyzing technical issues, a non-PII table for access by all users with limited access levels across the organization, and a PII table for users with high access levels.
 
 ## Assignment
-For current Sprint / Chapter your tasks are:
-1. **Read** from [Theory](#theory) section about:\
+For this Sprint / Chapter your tasks include:
+1. **Read** the following topics in the [Theory](#theory) section:\
     a. Extract Tranform Load.\
     b. Batch processing.\
     c. Extract data.\
@@ -14,7 +14,7 @@ For current Sprint / Chapter your tasks are:
     f. SQL.\
     g. Framework.
 
-2. **Implement** from [Practice](#practice) section for *DataDriven* company:\
+2. **Implement** the steps in the [Practice](#practice) section for *DataDriven* company:\
     a. Investigate data source.\
     b. Extract data:
     * i. Data generator.
@@ -30,11 +30,11 @@ For current Sprint / Chapter your tasks are:
     * iii. Non-PII Data.
     * iv. PII Data.
 
-3. **Work** for *LeadData* company on Sprint / Chapter tasks:\
-Read chapter *Scenario*, implement all stages from *Assignment* from `work_2/scenario_2.md` file and put all your work evidences in `work_2` directory.
+3. **Complete** tasks for *LeadData*:
+    * Review the *Scenario* section, complete the stages in the *Assignment*, and document your work in `work_2/scenario_2.md`. Store all evidence of your work in the `work_2` directory.
 
 ## Theory
-Main theoretical notions of the chapter with proper resources for self paced learning.
+The main theoretical notions for the chapter along with resources for self-paced learning.
 
 ### ETL
 #### Description
@@ -93,7 +93,7 @@ Whenever you work with any programming language, you might hear about various fr
 [GeeksforGeeks - What is a Framework?](https://www.knowledgehut.com/blog/data-science/data-extraction)
 
 ## Practice
-Implemention for the practical part of the chapter.
+The implemention for the practical part for the chapter.
 
 ### Investigate the data source
 Investigate data that are generated based on each user login to the internet platform of the *DataDriven* company and understand what is amount of existing data at this moment, what columns are available and what type of data they contains.\

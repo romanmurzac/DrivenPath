@@ -1,8 +1,8 @@
 ## Scenario 7
-For seventh Chapter / Sprint it is required to implement Continuous Integration and Continuous Deployment for *LeadData* pipeline in order to obtain fully automated process.
+For the seventh chapter/sprint, it is required to implement Continuous Integration and Continuous Deployment for the *LeadData* pipeline in order to achieve a fully automated process.
 
 ## Instructions 7
-Use directory `chapter_7/work_7/` as your project directory for work related to the **Chapter 7** for **LeadData** company.
+Use the directory `chapter_7/work_7/` as your project directory for work related to **Chapter 7** for **LeadData** company.
 
 ## Assignment 7
 a. Setup Kafka:

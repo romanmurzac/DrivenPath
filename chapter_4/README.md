@@ -1,13 +1,13 @@
 # **Chapter 4:** Batch processing - *Cloud: Console pipeline*
-**NOTE:** This chapter involve work with cloud services that are charged by the cloud provider. Consult [AWS Pricing calculator](https://calculator.aws/#/) for forecast of the estimated cost of the services used for current chapter.\
-If you proceed with this chapter this is on your own responsability and the author don't have any responsability for the resulted bill.
+
+**NOTE:** This chapter involves working with cloud services that are charged by the cloud provider. Consult the [AWS Pricing Calculator](https://calculator.aws/#/) for a forecast of the estimated cost of the services used in this chapter. If you proceed with this chapter, you do so at your own responsibility, and the author has no responsibility for the resulting bill.
 
 ## Scenario
-For fourth Chapter / Sprint needs to consolidate the pipeline that was developed on local machine, optimize pipeline processes, create the Cloud Architecture for the product to be robust and scalable, implement proposed architecture via Console to the AWS Cloud, validate in Cloud the *DataDriven* pipeline.
+For the fourth chapter/sprint, you need to consolidate the pipeline that was developed on your local machine, optimize the pipeline processes, create the cloud architecture to ensure the product is robust and scalable, implement the proposed architecture via the AWS Console, and validate the *DataDriven* pipeline in the cloud.
 
 ## Assignment
-For current Sprint / Chapter your tasks are:
-1. **Read** from [Theory](#theory) section about:\
+For this Sprint / Chapter your tasks include:
+1. **Read** the following topics in the [Theory](#theory) section:\
     a. Amazon Web Services:
     * i. S3.
     * ii. IAM.
@@ -17,7 +17,7 @@ For current Sprint / Chapter your tasks are:
     * vi. Athena.
     * vii. VPC.
 
-2. **Implement** from [Practice](#practice) section for *DataDriven* company:\
+2. **Implement** the steps in the [Practice](#practice) section for *DataDriven* company:\
     a. Setup AWS Console:
     * i. Login to AWS.
     * ii. Setup Console.
@@ -41,11 +41,11 @@ For current Sprint / Chapter your tasks are:
     * i. Access Athena.
     * ii. Query data.
 
-3. **Work** for *LeadData* company on Sprint / Chapter tasks:\
-Read chapter *Scenario*, implement all stages from *Assignment* from `work_4/scenario_4.md` file and put all your work evidences in `work_4` directory.
+3. **Complete** tasks for *LeadData*:
+    * Review the *Scenario* section, complete the stages in the *Assignment*, and document your work in `work_4/scenario_4.md`. Store all evidence of your work in the `work_4` directory.
 
 ## Theory
-Main theoretical notions of the chapter with proper resources for self paced learning.
+The main theoretical notions for the chapter along with resources for self-paced learning.
 
 ### Simple Storage Service
 #### Description
