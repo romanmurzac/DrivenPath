@@ -195,8 +195,8 @@ As an alternative you can use [Docker Hub](https://www.docker.com/products/docke
 
 #### pgAdmin 4
 In order to be able to work with databases locally and use software for database management it is required to have a database system as PostgreSQL and for management pgAdmin4.\
-Access [PostgreSQL](https://www.postgresql.org/download/) page and downloaded latest version for your OS. Once downloaded, run the installer and follow the on-screen instructions to install pgAdmin on your machine.\
-Access [pgAdmin 4](https://www.pgadmin.org/download/pgadmin-4-windows/) page and downloaded latest version for your OS. Once downloaded, run the installer and follow the on-screen instructions to install pgAdmin on your machine.\
+Access [PostgreSQL](https://www.postgresql.org/download/) page and downloaded latest version for your OS. Once downloaded, run the installer and follow the on-screen instructions to install *PostgreSQL* on your machine.\
+Access [pgAdmin 4](https://www.pgadmin.org/download/pgadmin-4-windows/) page and downloaded latest version for your OS. Once downloaded, run the installer and follow the on-screen instructions to install *pgAdmin 4* on your machine.\
 ![pgAdmin site](../media/image_1.22.PNG)
 
 #### AWS CLI
