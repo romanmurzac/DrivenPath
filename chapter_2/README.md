@@ -339,7 +339,25 @@ In *Columns* section introduce all necessary columns one by one.\
 Also, in *Columns* section for each introduced column define the data type for this column.\
 ![Image 2.11](../media/image_2.11.PNG)
 
-Here is a sample how the columns and their data types should look like.\
+Here are presented all columns and their data types and also a sample how the columns and their data types should look like in pgAdmin 4.
+```
+person_name character varying (100)
+user_name character varying (100)
+email character varying (100)
+personal_number numeric
+birth_date character varying (100)
+address character varying (100)
+phone character varying (100)
+mac_address character varying (100)
+ip_address character varying (100)
+iban character varying (100)
+access_at time without time zone
+session_duration integer
+download_speed integer
+upload_speed integer
+consumed_traffic integer
+unique_id character varying (100)
+```
 ![Image 2.12](../media/image_2.12.PNG)
 
 In *Tables* section now is present *batch_first_load* table.\
