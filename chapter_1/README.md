@@ -202,7 +202,6 @@ Access [pgAdmin 4](https://www.pgadmin.org/download/pgadmin-4-windows/) page and
 #### AWS CLI
 Access [AWS CLI installer](https://awscli.amazonaws.com/AWSCLIV2.msi) page and it will be downloaded automatically to your machine.\
 You can follow instructions below or access [Install or update to the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and follow instruction from there.\
-
 To update your current installation of AWS CLI on Windows, download a new installer each time you update to overwrite previous versions. AWS CLI is updated regularly.\
 Download and run the [AWS CLI MSI installer for Windows (64-bit)](https://awscli.amazonaws.com/AWSCLIV2.msi). Alternatively, you can run the msiexec command to run the MSI installer.
 ```
