@@ -351,7 +351,7 @@ phone character varying (100)
 mac_address character varying (100)
 ip_address character varying (100)
 iban character varying (100)
-access_at time without time zone
+accessed_at time without time zone
 session_duration integer
 download_speed integer
 upload_speed integer
