@@ -85,7 +85,7 @@ Docker Hub is a container registry built for developers and open source contribu
 ### Airflow
 #### Description
 Apache Airflow (or simply Airflow) is a platform to programmatically author, schedule, and monitor workflows.
-When workflows are defined as code, they become more maintainable, versionable, testable, and collaborative.
+When workflows are defined as code, they become more maintainable, testable, and collaborative.
 Use Airflow to author workflows as directed acyclic graphs (DAGs) of tasks. The Airflow scheduler executes your tasks on an array of workers while following the specified dependencies. Rich command line utilities make performing complex surgeries on DAGs a snap. The rich user interface makes it easy to visualize pipelines running in production, monitor progress, and troubleshoot issues when needed.
 #### References
 [GitHub - Apache Airflow](https://github.com/apache/airflow)\
@@ -118,11 +118,11 @@ dbt (data build tool) makes data engineering activities accessible to people wit
 [Medium - The Power of Data Build Tool (dbt)](https://medium.com/@nydas/the-power-of-data-build-tool-dbt-6b26dfab5bac)
 
 ## Practice
-Implemention for the practical part of the chapter.
+Implementation for the practical part of the chapter.
 
 ### Setup Docker container
-The ETL was developed on local machine named *testing environment* in our case. After local prototying of the ETL process is done, validate with the stakeholders that the actual results match expected results.
-In this chapter the *testing environment* processes will be transfered to the *development environment*, also local development that use tools for automation, orchestration and management of all processes as a single unit - **pipeline**.
+The ETL was developed on local machine named *testing environment* in our case. After local prototyping of the ETL process is done, validate with the stakeholders that the actual results match expected results.
+In this chapter the *testing environment* processes will be transferred to the *development environment*, also local development that use tools for automation, orchestration and management of all processes as a single unit - **pipeline**.
 
 First, ensure that you have all necessary tools from Chapter 1 installed on your local machine.
 
@@ -194,7 +194,7 @@ COPY dbt /opt/airflow/dbt
 ```
 
 ### Create dbt
-The SQL queries that were created for *testing environment* can be used for *development environment* as well, but as the project will grow, it will be hard to mentain all the processes inside the database. In order to have a scalable infrastructure for data modelling will be used **dbt**.\
+The SQL queries that were created for *testing environment* can be used for *development environment* as well, but as the project will grow, it will be hard to maintain all the processes inside the database. In order to have a scalable infrastructure for data modelling will be used **dbt**.\
 Create a directory with name `dbt` and inside of it make a directory named `models`.
 ```
 mkdir dbt
@@ -550,7 +550,7 @@ FROM
 Once all previous stages are completed the project is in the same state as in *testing environment* where each part can be executed manually and individual. To promote the project to *develop environment* it will use Apache Airflow to orchestrate and manage the pipeline. In Airflow the pipeline is consisting from a DAG. Inside the DAG will be executed tasks that represent each stage that previously was executed manually. In this way it will manage dependencies between tasks and will succeed only if all tasks will succeed.
 
 #### Run containers
-To run the Airflow it is needed to run the Docker Containers that were created previously via `docker-compose.yml` and `Dockerfile` where the Airflow was setup.\
+To run the Airflow it is needed to run the Docker Containers that were created previously via `docker-compose.yml` and `Dockerfile` where the Airflow was set up.\
 Make sure that the Docker Desktop is running. In VS Code open a terminal, make sure that you're in correct directory: `chapter_3/src_3`.
 ```
 cd src_3
@@ -684,7 +684,7 @@ load_raw_data_task = SQLExecuteQueryOperator(
 )
 ```
 
-Run dbt models for staging and trusted zones by running taging models with specific tag using Bash Operator.
+Run dbt models for staging and trusted zones by running tagging models with specific tag using Bash Operator.
 ```
 # Define staging dbt models run task.
 run_dbt_staging_task = BashOperator(
@@ -699,7 +699,7 @@ run_dbt_trusted_task = BashOperator(
 )
 ```
 
-Define tasks running dependecies. Extracting data and create raw schema are independent and can be created in parallel, rest of the tasks are dependent and will run in series.
+Define tasks running dependencies. Extracting data and create raw schema are independent and can be created in parallel, rest of the tasks are dependent and will run in series.
 ```
 # Set the task in the DAG
 [extract_raw_data_task, create_raw_schema_task] >> create_raw_table_task
@@ -714,10 +714,10 @@ Click on the DAG name and access it. In the DAG you'll see the tasks defined in 
 ![Image 3.15](../media/image_3.15.PNG)
 
 #### Run DAG
-Play the DAG and it will run automatically at scheduled time, in this case it will run at 07:00 AM every day.
+Play the DAG, and it will run automatically at scheduled time, in this case it will run at 07:00 AM every day.
 ![Image 3.16](../media/image_3.16.PNG)
 
-After running the DAG, click on specific task and access the `Logs` section and you can see the logs of execution.
+After running the DAG, click on specific task and access the `Logs` section, and you can see the logs of execution.
 ![Image 3.17](../media/image_3.17.PNG)
 
 For dbt tasks you can see the that for each task from all available models were run only the models with specific tag.
@@ -727,7 +727,7 @@ For each task can be seen the execution time.
 ![Image 3.19](../media/image_3.19.PNG)
 
 ### Setup pgAdmin 4 database
-Now, after the pipeline is up and running on daily basis, the data are available for using for further consumtion.
+Now, after the pipeline is up and running on daily basis, the data are available for using for further consumption.
 The data are available in trusted zone in four tables defined in `Chapter 2`.
 Run *pgAdmin 4* and connect to the `airflow` database.
 

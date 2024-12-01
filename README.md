@@ -1,7 +1,7 @@
-# DrivenPath
+# Data Engineering Introduction
 
 ## Description
-**DrivenPath** is a Data Engineering Retraining Program repository designed to guide junior engineers and professionals transitioning into Data Engineering. This program combines theoretical learning with hands-on practice, enabling anyone to build, deploy, and manage data pipelines, culminating in a comprehensive project applicable to real-world scenarios.
+**Data Engineering Introduction** is a repository designed to guide junior engineers and professionals transitioning into Data Engineering. This program combines theoretical learning with hands-on practice, enabling anyone to build, deploy, and manage data pipelines, culminating in a comprehensive project applicable to real-world scenarios.
 
 Through a scenario-driven approach, users will gain technical skills and understand how to apply them practically. By the end of the program, users will have constructed a complete data pipeline for a simulated small business, setting them on the path to becoming proficient Data Engineers.
 ## Content
@@ -34,8 +34,8 @@ Each chapter has two primary directories: `src_n` and `work_n`. The `src_n` dire
 ### Chapter Descriptions
 The repository is built around a real-world scenario. Each chapter introduces a specific scenario element and provides theoretical knowledge, followed by practical exercises to implement that part. 
 
-#### [Chapter 1: Introduction to Big Data Engineering](chapter_1)
-Introduces fundamental Big Data concepts. Theoretical knowledge covers core concepts, while practical work includes account setup and software installation.
+#### [Chapter 1: Introduction to Data Engineering](chapter_1)
+Introduces fundamental Data Engineering concepts. Theoretical knowledge covers core concepts, while practical work includes account setup and software installation.
 
 #### [Chapter 2: Batch processing - Local Development](chapter_2)
 Covers Extract, Transform, Load (ETL) processes, normalization, denormalization, and related technologies. Users will extract, transform, and load data as part of the practical exercise.
@@ -61,7 +61,7 @@ Introduces Lambda functions, Simple Queue Service, and JSON real-time data handl
 #### [Chapter 9: Distributed Computing](chapter_9)
 Explores Apache Spark and PySpark for distributed computing. Practical work includes local development with Google Colab and cloud deployment with AWS Glue.
 
-#### [Chapter 10: Analytics and Vizualization](chapter_10)
+#### [Chapter 10: Analytics and Visualisation](chapter_10)
 Covers analytics and dashboard creation with Python Dash. Users learn to deploy dashboards using AWS Elastic Container Registry and Cloud App Runner.
 
 ## Getting Started
@@ -103,7 +103,7 @@ git push
 ## Cloud Usage
 The cloud is a powerful resource for developing and deploying products, but it's important to remember that it comes with costs. Careful planning and management of services can help avoid unexpected expenses.\
 To forecast your expenses for the services you plan to use, access the [AWS Pricing Calculator](https://calculator.aws/#/). Click on **Create Estimate** to begin your calculations.
-![Acess AWS Calculator.](media/image_0.3.PNG "Acess AWS Calculator")
+![Access AWS Calculator.](media/image_0.3.PNG "Access AWS Calculator")
 
 1. **Select Your Region**: In the **Search by location type** dropdown, choose the region where you intend to deploy your services. This will ensure that pricing reflects the correct geographic area.
 
@@ -122,7 +122,7 @@ By following these steps, you can effectively manage your cloud expenses.
 Contributions are welcome! If you find issues or have ideas for improvements, feel free to fork or clone the repository and submit a pull request.
 
 ## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Contact
 If you have questions or need support, please open an issue in the repository or reach out via [LinkedIn](https://www.linkedin.com/in/roman-murzac/).

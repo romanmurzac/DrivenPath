@@ -41,7 +41,7 @@ The main theoretical notions for the chapter along with resources for self-paced
 
 ### Lambda Function
 #### Description
-Lambda runs your code on a high-availability compute infrastructure and performs all of the administration of the compute resources, including server and operating system maintenance, capacity provisioning and automatic scaling, and logging. With Lambda, all you need to do is supply your code in one of the language runtimes that Lambda supports. You organize your code into Lambda functions. The Lambda service runs your function only when needed and scales automatically. You only pay for the compute time that you consume—there is no charge when your code is not running.
+Lambda runs your code on a high-availability compute infrastructure and performs all the administration of the compute resources, including server and operating system maintenance, capacity provisioning and automatic scaling, and logging. With Lambda, all you need to do is supply your code in one of the language runtimes that Lambda supports. You organize your code into Lambda functions. The Lambda service runs your function only when needed and scales automatically. You only pay for the compute time that you consume—there is no charge when your code is not running.
 #### References
 [AWS - What is AWS Lambda?](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html)\
 [AWS - Create your first Lambda function](https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html)\
@@ -64,10 +64,10 @@ JSON (JavaScript Object Notation) is an open standard file format and data inter
 [W3Schools - What is JSON?](https://www.w3schools.com/whatis/whatis_json.asp)
 
 ## Practice
-Implemention for the practical part of the chapter.
+Implementation for the practical part of the chapter.
 
 ### Create IAM role
-Navigate to *IAM* servive in AWS and choose *Role* section. Create a new role by choosing `AWS service` for the *Trusted entity type*. Select `Lambda` option for the *Use case*.\
+Navigate to *IAM* service in AWS and choose *Role* section. Create a new role by choosing `AWS service` for the *Trusted entity type*. Select `Lambda` option for the *Use case*.\
 ![Image 8.1](../media/image_8.1.PNG)
 
 Choose `AWSLambda_FullAccess`, `AWSCloudWatchEvidentlyFullAccess`, `AmazonSQSFullAccess` and `AmazonS3FullAccess` policies. The policies should allow access only to run a specific resources and to read and write to a specific bucket, the policies can be updated accordingly. Enter `drivendata_streaming_role` for the *Role name* option. \
@@ -77,10 +77,10 @@ Choose `AWSLambda_FullAccess`, `AWSCloudWatchEvidentlyFullAccess`, `AmazonSQSFul
 The streaming data, as per current volume and velocity, will be ingested using Amazon Simple Queue Service.
 
 #### Create Simple Queue Service
-Navigate to *SQS* service in AWS. Select `Create queue` and create a brand new queue.\
+Navigate to *SQS* service in AWS. Select `Create queue` and create a brand-new queue.\
 ![Image 8.3](../media/image_8.3.PNG)
 
-Choose `Standard` for *Type* option. Enter `driven_data_queue` for *Name*. Setup the *Configuration* options as per image below - 1 minute for visibility, 15 mins for retention and 256 kB for the message size, without delay.\
+Choose `Standard` for *Type* option. Enter `driven_data_queue` for *Name*. Set up the *Configuration* options as per image below - 1 minute for visibility, 15 minutes for retention and 256 kB for the message size, without delay.\
 ![Image 8.4](../media/image_8.4.PNG)
 
 Choose `Enabled` for *Server side encryption*, `SSE-SQS` for *Encryption key type*. Select `Basic` for *Access policy*. Specify for send and receive only the specified AWS accounts, IAM users and roles. Enter the account number, admin user of the account, and the role that was created above.\
@@ -98,11 +98,11 @@ The producer will be handled by a Lambda Function and will send data to the queu
 Select `Author from scratch` option. Enter `drivendata_producer_function` for the *Function name*. Select `Python 3.12` for the *Runtime* option. Select `Use an existing role` and select the role that was created above.\
 ![Image 8.8](../media/image_8.8.PNG)
 
-Now tha Lambda function is created and can be updated in order to fullfill all necessary configurations.\
+Now tha Lambda function is created and can be updated in order to fulfill all necessary configurations.\
 ![Image 8.9](../media/image_8.9.PNG)
 
 In *Code* section can be seen the initial code for the Lambda function that will be executed.\
-In `work_8` directory create a subdirfectory and name it `producer`. In created subdirectory create a file named `requirements.txt` and paste the content from below.
+In `work_8` directory create a subdirectory and name it `producer`. In created subdirectory create a file named `requirements.txt` and paste the content from below.
 ```
 boto3
 faker
@@ -158,7 +158,7 @@ def generate_record(fake: Faker) -> dict:
     return streaming_data
 ```
 
-Create a function that will produce data and willwill push the to the *Amazon SQS* queue that was created above.
+Create a function that will produce data and will push the to the *Amazon SQS* queue that was created above.
 ```
 def produce_data(time_limit=15) -> None:
     start_time = datetime.now()
@@ -221,7 +221,7 @@ bash create_package.sh
 ![Image 8.10](../media/image_8.10.PNG)
 
 #### Test producer Lambda function
-Choose option `Upload from`, select `zip file` and choose from your local disk the archieved lambda function that was generated with the name `lambda_function.zip`.\
+Choose option `Upload from`, select `zip file` and choose from your local disk the archived lambda function that was generated with the name `lambda_function.zip`.\
 Navigate to the `Test` section and press option `Test`. It will run the Lambda function and there will be execution logs under *Details* option.\
 ![Image 8.11](../media/image_8.11.PNG)
 
@@ -236,10 +236,10 @@ The consumer will be handled by a Lambda function that will consume data from th
 Select `Author from scratch` option. Enter `drivendata_consumer_function` for the *Function name*. Select `Python 3.12` for the *Runtime* option. Select `Use an existing role` and select the role that was created above.\
 ![Image 8.13](../media/image_8.13.PNG)
 
-Now tha Lambda function is created and can be updated in order to fullfill all necessary configurations.\
+Now tha Lambda function is created and can be updated in order to fulfill all necessary configurations.\
 ![Image 8.14](../media/image_8.14.PNG)
 
-In `work_8` directory create a subdirfectory and name it `consumer`. In created subdirectory create a file named `requirements.txt` and paste the content from below.
+In `work_8` directory create a subdirectory and name it `consumer`. In created subdirectory create a file named `requirements.txt` and paste the content from below.
 ```
 boto3
 ```
@@ -340,7 +340,7 @@ bash create_package.sh
 ```
 
 #### Test consumer Lambda function
-Choose option `Upload from`, select `zip file` and choose from your local disk the archieved lambda function that was generated with the name `lambda_function.zip`.\
+Choose option `Upload from`, select `zip file` and choose from your local disk the archived lambda function that was generated with the name `lambda_function.zip`.\
 Navigate to the `Test` section and press option `Test`. It will run the Lambda function and there will be execution logs under *Details* option.
 
 #### Run consumer Lambda.

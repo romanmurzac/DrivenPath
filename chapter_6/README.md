@@ -29,7 +29,7 @@ The main theoretical notions for the chapter along with resources for self-paced
 
 ### Continuous Integration and Continuous Deployment
 #### Description
-CI And CD is the practice of automating the integration of code changes from multiple developers into a single codebase. It is a software development practice where the developers commit their work frequently to the central code repository. Then there are automated tools that build the newly committed code and do a code review, etc as required upon integration.
+CI And CD is the practice of automating the integration of code changes from multiple developers into a single codebase. It is a software development practice where the developers commit their work frequently to the central code repository. Then there are automated tools that build the newly committed code and do a code review, etc. as required upon integration.
 The key goals of Continuous Integration are to find and address bugs quicker, make the process of integrating code across a team of developers easier, improve software quality, and reduce the time it takes to release new feature updates. 
 #### References
 [RedHat - What is CI/CD?](https://www.redhat.com/en/topics/devops/what-is-ci-cd)\
@@ -47,7 +47,7 @@ GitHub provides Linux, Windows, and macOS virtual machines to run your workflows
 [Dev - Getting Started with GitHub Actions: A Beginner’s Guide](https://dev.to/kanani_nirav/getting-started-with-github-actions-a-beginners-guide-og7)
 
 ## Practice
-Implemention for the practical part of the chapter.
+Implementation for the practical part of the chapter.
 
 ### Create GitHub secrets
 Navigate to your [GitHub DrivenData repository](https://github.com/romanmurzac/DrivenPath), access `Settings` section and in `Security` module access `Secrets and variables` option and choose `Actions`.\
@@ -61,7 +61,7 @@ Create a secret with *Name* `AWS_REGION` and *Secret* with the value `eu-central
 In order to use *GitHub Actions* here can be used manual setup by navigating to `Actions` section, press `New workflow` and from here choose or a *Template workflow*, or `set up a workflow yourself` option. In *DrivenData* project it will be setup via code.
 
 ### Create deployment branch
-In order to prepare a CI/CD for *DrivenData* pipeline it will be needed to prepare a brand new branch - `deploy`. This branch will be used as an empty branch that not contains all works related to previous chapters. It needs to deploy only the desired infrastructure.\
+In order to prepare a CI/CD for *DrivenData* pipeline it will be needed to prepare a brand-new branch - `deploy`. This branch will be used as an empty branch that not contains all works related to previous chapters. It needs to deploy only the desired infrastructure.\
 Create `deploy` branch and delete all content from it.
 ```
 git checkout --orphan deploy
@@ -119,7 +119,7 @@ jobs:
       - name: Apply Terraform
         run: terraform apply -auto-approve
 ```
-This file will create a workflow named `DrivenData CI/CD pipeline` that will trigger deployment only when there will be a `push` on `deploy` branch. It will create a *job* `deploy` that will run on *Ubuntu*. It will check the code and will install *Terraform 1.9.7*, will setup *AWS credentials*, and will run command for Terraform: `init`, `plan`, and `apply`.
+This file will create a workflow named `DrivenData CI/CD pipeline` that will trigger deployment only when there will be a `push` on `deploy` branch. It will create a *job* `deploy` that will run on *Ubuntu*. It will check the code and will install *Terraform 1.9.7*, will set up *AWS credentials*, and will run command for Terraform: `init`, `plan`, and `apply`.
 
 ### Push code
 Once the code is ready and the branch contains only the structure described above it can be pushed to the remote branch.
@@ -136,7 +136,7 @@ Once the code was pushed to the remote branch, navigate to the GitHub repository
 Click on the name of the workflow run and here will be displayed details about this current run. It can ve noticed that `terraform-deploy.yml` is used on `push` command.
 ![Image 6.3](../media/image_6.3.PNG)
 
-Click on deploy and here will be displayed all stages of deployment. Can be noticed that stages are according with what was declared in `terraform-deploy.yml` file. `Set up job` and `Complete job` are default stages, rest of the stages are custom defined.
+Click on deploy and here will be displayed all stages of deployment. Can be noticed that stages are according to what was declared in `terraform-deploy.yml` file. `Set up job` and `Complete job` are default stages, rest of the stages are custom defined.
 ![Image 6.4](../media/image_6.4.PNG)
 
 Open `set up job` stage and here it can be observed all settings used for this current job such as Operating System used, Image used, Provisioner, etc.
@@ -151,14 +151,14 @@ Open `Initialize Terraform` stage and here can be observed that Terraform was in
 Open `Plan Terraform` stage and here can be observed that Terraform executed follow plan: *1 to add, 0 to change, 0 to destroy* as was declared in `s3.tf` file.
 ![Image 6.8](../media/image_6.8.PNG)
 
-Open `Apply Terraform` stage and here can be observed that Terraform applyed the plan and deployed the resources, in this case a S3 bucket.
+Open `Apply Terraform` stage and here can be observed that Terraform applied the plan and deployed the resources, in this case a S3 bucket.
 ![Image 6.9](../media/image_6.9.PNG)
 
 ### Check deployment
-In your AWS account navigate to *S3* service and you can notice that there is a S2 bucket named `drivendata-cicd-bucket`.
+In your AWS account navigate to *S3* service, and you can notice that there is a S2 bucket named `drivendata-cicd-bucket`.
 ![Image 6.10](../media/image_6.10.PNG)
 
 ### Further development
-As the CI/CD is configured what needs to be done is to deploy the whole infrastructure via Terraform directly from GitHub repository. To achieve this just update the `terraform-deploy.yml` file and isntead of the `deploy` branch use value for the branch where the whole infrastructure where developed, in *DrivenData* project this branch is `chapter_5`.\
-In order to *destroy* the infrastructure here can be added one more step that will destroy the infrastructure, but this can be used just for testing purpose as the infrastructure will be deleted imediatly. For development use another branch that will execute *destroy* command on existing infrastructure.\
+As the CI/CD is configured what needs to be done is to deploy the whole infrastructure via Terraform directly from GitHub repository. To achieve this just update the `terraform-deploy.yml` file and instead of the `deploy` branch use value for the branch where the whole infrastructure where developed, in *DrivenData* project this branch is `chapter_5`.\
+In order to *destroy* the infrastructure here can be added one more step that will destroy the infrastructure, but this can be used just for testing purpose as the infrastructure will be deleted immediately. For development use another branch that will execute *destroy* command on existing infrastructure.\
 **Note:** If you don't plan to use deployed infrastructure, is recommended to destroy it in order to avoid to be charged.

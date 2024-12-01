@@ -63,7 +63,7 @@ Identity and access management (IAM or IdAM for short) is a way to tell who a us
 
 ### Managed Workflows for Apache Airflow
 #### Description
-Amazon Managed Workflows for Apache Airflow is a managed orchestration service for Apache Airflow that you can use to setup and operate data pipelines in the cloud at scale. Apache Airflow is an open-source tool used to programmatically author, schedule, and monitor sequences of processes and tasks referred to as workflows. With Amazon MWAA, you can use Apache Airflow and Python to create workflows without having to manage the underlying infrastructure for scalability, availability, and security. Amazon MWAA automatically scales its workflow execution capacity to meet your needs, Amazon MWAA integrates with AWS security services to help provide you with fast and secure access to your data.
+Amazon Managed Workflows for Apache Airflow is a managed orchestration service for Apache Airflow that you can use to set up and operate data pipelines in the cloud at scale. Apache Airflow is an open-source tool used to programmatically author, schedule, and monitor sequences of processes and tasks referred to as workflows. With Amazon MWAA, you can use Apache Airflow and Python to create workflows without having to manage the underlying infrastructure for scalability, availability, and security. Amazon MWAA automatically scales its workflow execution capacity to meet your needs, Amazon MWAA integrates with AWS security services to help provide you with fast and secure access to your data.
 #### References
 [AWS - What Is Amazon Managed Workflows for Apache Airflow?](https://docs.aws.amazon.com/mwaa/latest/userguide/what-is-mwaa.html)\
 [Boto3 - MWAA](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mwaa.html)
@@ -97,7 +97,7 @@ With Amazon Virtual Private Cloud (Amazon VPC), you can launch AWS resources in 
 [GeeksforGeeks - Amazon VPC – Introduction to Amazon Virtual Private Cloud](https://www.geeksforgeeks.org/amazon-vpc-introduction-to-amazon-virtual-cloud/)
 
 ## Practice
-Implemention for the practical part of the chapter.
+Implementation for the practical part of the chapter.
 
 ### Setup AWS Console
 As first interaction with AWS is the Console. Here you can test the services and also, you can test your features that you develop. This will be first approach to prove the concept of the pipeline in cloud.
@@ -113,7 +113,7 @@ Once you're logged into the AWS account, you'll see the console where you can do
 In the console are available two main options to access the AWS services: click on left panel `Console Home` and choose `All services` and central panel you'll see all services available in AWS Cloud arranged by category. Now you can click on desired services and configure them.
 ![Image 4.3](../media/image_4.3.PNG)
 
-Also, in order to access a service in AWS Cloud you can just write the name of the service in the `Search` panel and the service will be listed. It is not mandatory to write the full name of the services to get them in list, it works even with abreviations.
+Also, in order to access a service in AWS Cloud you can just write the name of the service in the `Search` panel and the service will be listed. It is not mandatory to write the full name of the services to get them in list, it works even with abbreviations.
 ![Image 4.4](../media/image_4.4.PNG)
 
 ### Setup Services
@@ -123,7 +123,7 @@ In order to prove the concept for the pipeline developed for *DrivenData* it wil
 First service that will be used is S3 - Simple Storage Service is a storage that is used as datalake. Search or access from the list `S3` and access it. As there no buckets created yet, you should see an empty S3. 
 ![Image 4.5](../media/image_4.5.PNG)
 
-Presson `Create bucket` provide the name `driven-data-bucket`, keep ACLs disabled.\
+Press on `Create bucket` provide the name `driven-data-bucket`, keep ACLs disabled.\
 ![Image 4.6](../media/image_4.6.PNG)
 
 Also, disable `Block all public access`.\
@@ -150,18 +150,18 @@ Create one more subnet with the name `private-zone-b`, choose as *Availability Z
 Now you should see al five subnets: three default public subnets and two private subnets that were created.
 ![Image 4.13](../media/image_4.13.PNG)
 
-You can create custom Security Group that will allow inbound and outbound traffic based on your specification. In this case the Security Group will have inbound traffic as `All traffic` referencing to itself. For outbound taffic specify `All traffic` with destination `0.0.0.0/0`.
+You can create custom Security Group that will allow inbound and outbound traffic based on your specification. In this case the Security Group will have inbound traffic as `All traffic` referencing to itself. For outbound traffic specify `All traffic` with destination `0.0.0.0/0`.
 ![Image 4.14](../media/image_4.14.PNG)
 
 #### MWAA - Managed Workflows for Apache Airflow
 Access `Airflow` and press on `Create environment`.
-Enter `driven_data_airflow_environment` as *Name* in *Environment details* section. Choose latest version available for Airflow. As our pipeline should be available with fresh data daily at 08:00 AM, choose for `Weekly maintenance window start` after this time and prefered in weekend.\
+Enter `driven_data_airflow_environment` as *Name* in *Environment details* section. Choose latest version available for Airflow. As our pipeline should be available with fresh data daily at 08:00 AM, choose for `Weekly maintenance window start` after this time and preferred in weekend.\
 ![Image 4.5](../media/image_4.15.PNG)
 
 Press `Browse S3` and choose the bucket that was created before `driven-data-bucket` as *S3 Bucket*. Use same bucket for all options with specific directory inside such as: dags, lib for plugins and requirements. Plugins should be zipped and requirements should be in `txt` format. For this specific environment leave empty all fields beside first one with the bucket itself.\
 ![Image 4.16](../media/image_4.16.PNG)
 
-Choose `Create MWAA VPC` for `Virtual private cloud` option and a VPC will be create special to be used with the MWAA. This option will create as well the private subnets needed for MWAA setup. You can see created private subnets selected as `Subnet 1` and `Subnet 2`.\
+Choose `Create MWAA VPC` for `Virtual private cloud` option and a VPC will be created special to be used with the MWAA. This option will create as well the private subnets needed for MWAA setup. You can see created private subnets selected as `Subnet 1` and `Subnet 2`.\
 ![Image 4.17](../media/image_4.17.PNG)
 
 Choose `Private network (No internet accessible)` so this Airflow environment will be available only for the users with access to the VPC. Also, choose `Create new security group` to generate a Security Group special for the Airflow environment.\
@@ -174,17 +174,17 @@ For *Permissions* option choose `Create a new role` as an *Execution role* and c
 At the end of all these operations, press `Review environment`, review all settings and press `Create environment`.\
 ![Image 4.20](../media/image_4.20.PNG)
 
-After setup the environment you'll se the environment creation process. In this window you can monitor if the creation process will be successful or some errors will occur. If any error occur, check the logs to see the error root cause and redeploy the environment after address the error.
+After set up the environment you'll se the environment creation process. In this window you can monitor if the creation process will be successful or some errors will occur. If any error occur, check the logs to see the error root cause and redeploy the environment after address the error.
 ![Image 4.21](../media/image_4.21.PNG)
 
-The environment creation process will take around 30-45 minutes. If all settings were setup correctly we'll see the `Available` status after deployment is finished. Now you can use the MWAA to create the pipeline with the DAG.
+The environment creation process will take around 30-45 minutes. If all settings were set up correctly we'll see the `Available` status after deployment is finished. Now you can use the MWAA to create the pipeline with the DAG.
 ![Image 4.22](../media/image_4.22.PNG)
 
 Now you can access the MWAA using `Open Airflow UI` and create DAGs.
 ![Image 4.23](../media/image_4.23.PNG)
 
 #### IAM - Identity Access Management
-Access the IAM section and select `roles` option, here you should see all existing roles. Two roles should be related to the MWAA. First role is the role that was created for the MWAA and it was kept the original name and the second one is a service role for the MWAA.
+Access the IAM section and select `roles` option, here you should see all existing roles. Two roles should be related to the MWAA. First role is the role that was created for the MWAA, and it was kept the original name and the second one is a service role for the MWAA.
 ![Image 4.24](../media/image_4.24.PNG)
 
 Click on the MWAA role and choose the `policy` section. Open the policy and here you'll see what permissions has the role via this policy. For example, the part in the image allow the role to list the buckets name and only for specific bucket with the name `driven-data-bucket`.
@@ -257,7 +257,7 @@ The names of the crawlers: `raw_driven_data`, `staging_dim_address`, `staging_di
 ![Image 4.30](../media/image_4.30.PNG)
 
 ### Run DAG
-Now it will be created a DAG that will manage and orchestrate all the services that were setup and will generate raw and staging data available in Athena for further usage.
+Now it will be created a DAG that will manage and orchestrate all the services that were set up and will generate raw and staging data available in Athena for further usage.
 
 #### Create requirements
 First step will be to upload `requirements.txt` file to the S3 `driven_data_bucket` bucket. Content of the *requirements.txt* file can be found in `scr_4/requirements.txt` file.
@@ -286,8 +286,8 @@ Copy DAG in `s3://driven-data-bucket/dags/` S3 directory and see the result in A
 
 #### Run pipeline via DAG
 Run the DAG, monitor all tasks execution for monitoring. Also, we can access *CloudWatch* to see the logs for each task in order to debug if any error occur.\
-During the execution of a specific task you can check if the proper service is running and we'll se that Glue job or Crawler was triggered by Airflow DAG task.
-Also we can see that all Glue jobs are running in parallel as they are not dependent on each other. Also, all staging crawlers are running in parallel after each specific Glue job finished.\
+During the execution of a specific task you can check if the proper service is running, and we'll se that Glue job or Crawler was triggered by Airflow DAG task.
+Also, we can see that all Glue jobs are running in parallel as they are not dependent on each other. Also, all staging crawlers are running in parallel after each specific Glue job finished.\
 Example of successfully run Glue job.\
 ![Image 4.33](../media/image_4.33.PNG)
 
@@ -298,7 +298,7 @@ Example of the `driven_data_pipeline` DAG execution.
 ![Image 4.35](../media/image_4.35.PNG)
 
 ### Consume data
-Once the DAG wqs running successfully, the data are available in Athena database. Here the Database Administrator should setup proper access for all user groups and data are ready for consumtion.
+Once the DAG wqs running successfully, the data are available in Athena database. Here the Database Administrator should set up proper access for all user groups and data are ready for consumption.
 
 #### Access Athena
 Access *Athena* and choose `driven_data_db` as database. You should see all six tables available.

@@ -7,3 +7,5 @@ terraform.tfstate.backup
 __pycache__/
 consumer_package/
 producer_package/
+*.xml
+*.iml

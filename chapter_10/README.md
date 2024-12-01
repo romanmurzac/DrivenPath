@@ -1,4 +1,4 @@
-# **Chapter 10:** Analytics and Vizualization
+# **Chapter 10:** Analytics and Visualisation
 
 **NOTE:** This chapter involves working with cloud services that are charged by the cloud provider. Consult the [AWS Pricing Calculator](https://calculator.aws/#/) for a forecast of the estimated cost of the services used in this chapter. If you proceed with this chapter, you do so at your own responsibility, and the author has no responsibility for the resulting bill.
 
@@ -14,13 +14,13 @@ For this Sprint / Chapter your tasks include:
     d. Cloud App Runner.
 
 2. **Implement** the steps in the [Practice](#practice) section for *DataDriven* company:\
-    a. Create Local Dashbord:
+    a. Create Local Dashboard:
     * i. Create dashboard.
     * ii. Add style to dashboard.
     * iii. Test dashboard.
 
     b. Create Docker Dashboard:
-    * i. Define dependecies.
+    * i. Define dependencies.
     * ii. Create Dockerfile.
     * iii. Create Docker image.
     * iv. Run Docker container.
@@ -69,10 +69,10 @@ AWS App Runner is an AWS service that provides a fast, simple, and cost-effectiv
 [AWS - AWS App Runner Documentation](https://docs.aws.amazon.com/apprunner/)
 
 ## Practice
-Implemention for the practical part of the chapter.
+Implementation for the practical part of the chapter.
 
-### Create Local Dashbord
-As the data are ingested both, in batch and streaming and all processes are in place, from streaming data can be created a dashboard for technical and business needs. For this purpose will be created a dashboard that allow users to view in real time five different vizualizations based on selected parameters.
+### Create Local Dashboard
+As the data are ingested both, in batch and streaming and all processes are in place, from streaming data can be created a dashboard for technical and business needs. For this purpose will be created a dashboard that allow users to view in real time five different visualizations based on selected parameters.
 
 #### Create dashboard
 In directory `src_10` create a file `dashboard.py` and paste the code from below. This part of code will import all necessary modules, will define connection to the *drivendata_db* database and will retrieve all data from database. Also, will define the columns that are available for user menu to be displayed in dashboard.
@@ -228,8 +228,8 @@ Access the link that is displayed in terminal or introduce in browser the link [
 ![Image 10.2](../media/image_10.2.PNG)
 
 #### Add style to dashboard
-The dashboard is created and running localy, but stil it needs some style.\
-Create a directory `assets` and inside of the directory create a file named `styles.css` and paste the content from below. Now the dashboard looks as in image below.
+The dashboard is created and running locally, but still it needs some style.\
+Create a directory `assets` and inside the directory create a file named `styles.css` and paste the content from below. Now the dashboard looks as in image below.
 ```
 body {
     font-family: Arial, sans-serif;
@@ -279,29 +279,29 @@ h1 {
 
 #### Test dashboard
 As the dashboard is running locally it can be tested.\
-First graph is a *scatter* plot and it represent first 10 *Consummed traffic* on *Y axis* and selected field on *X axis*.\
+First graph is a *scatter* plot, and it represents first 10 *Consumed traffic* on *Y axis* and selected field on *X axis*.\
 ![Image 10.4](../media/image_10.4.PNG)
 
-Second graph is a *bar* plot and it represent first 10 *People name* on *X axis* and selected field on *Y axis*.\
+Second graph is a *bar* plot, and it represents first 10 *People name* on *X axis* and selected field on *Y axis*.\
 ![Image 10.5](../media/image_10.5.PNG)
 
-Third graph is a *line* plot and it represent selected field on *Y axis* and *index* on *X axis*.\
+Third graph is a *line* plot, and it represents selected field on *Y axis* and *index* on *X axis*.\
 ![Image 10.6](../media/image_10.6.PNG)
 
-Fourth graph is a *box* plot and it represent the distribution of the selected field values.\
+Fourth graph is a *box* plot, and it represents the distribution of the selected field values.\
 ![Image 10.7](../media/image_10.7.PNG)
 
-Fifth graph is a *histogram* and it represent number of occurences on *Y axis* and selected field on *X axis*.\
+Fifth graph is a *histogram*, and it represents number of occurrences on *Y axis* and selected field on *X axis*.\
 ![Image 10.8](../media/image_10.8.PNG)
 
-Sixth graph is a *pie chart* and it represent the distribution of first 10 year of birth of the users in percentage.\
+Sixth graph is a *pie chart*, and it represents the distribution of first 10 year of birth of the users in percentage.\
 ![Image 10.9](../media/image_10.9.PNG)
 
 ### Create Docker Dashboard
 Once the dashboard is fully functional on local machine, it is needed to containerize it and run in container.
 
-#### Define dependecies
-In order to have all the dependecies installed in the container environment, create a file `requirements.txt` and copy the content from below.
+#### Define dependencies
+In order to have all the dependencies installed in the container environment, create a file `requirements.txt` and copy the content from below.
 ```
 boto==2.49.0
 dash==2.18.1
@@ -323,7 +323,7 @@ CMD ["python", "app.py"]
 ```
 
 #### Create Docker image
-Once the *Dockerfile* is ready in terminal run the command from below that will create a image named *driven-data* for *AMD64* Architecture.
+Once the *Dockerfile* is ready in terminal run the command from below that will create an image named *driven-data* for *AMD64* Architecture.
 ```
 docker buildx build --platform linux/amd64 -t driven-data .
 ```
@@ -336,7 +336,7 @@ docker run -p 8080:8080 driven-data
 ```
 
 ### Create Cloud Dashboard
-After the dashboard was developed locally, was deployed in container and it was confirmed by stakeholders, it can be productionized using Cloud.
+After the dashboard was developed locally, was deployed in container, and it was confirmed by stakeholders, it can be productionized using Cloud.
 
 #### Update Docker image
 In order to publish to the cloud, the dashboard needs to be updated, as well the docker image in order to take the updates of the dashboard.\
@@ -364,7 +364,7 @@ docker buildx build --platform linux/amd64 -t driven-data .
 ```
 
 #### Create ECR repository
-Install [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html#getting-started-install-instructions) and run in termin command from below. After this, it will ask to introduce the *Key ID*, *Key Secret*, *Region*. Once all these operations are done, AWS operations are possible from local terminal.
+Install [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html#getting-started-install-instructions) and run in terminal command from below. After this, it will ask to introduce the *Key ID*, *Key Secret*, *Region*. Once all these operations are done, AWS operations are possible from local terminal.
 ```
 aws configure
 ```
@@ -372,7 +372,7 @@ aws configure
 Navigate to AWS Console and access *Elastic Container Registry* service. Press `Create repository`, introduce the name `driven-data` and press `Create`.\
 ![Image 10.11](../media/image_10.11.PNG)
 
-Access created *driven-data* repository and press `View push commands`. The will appear a dialog window with four steps. Copy one by one the command and run them in local terminal.\
+Access created *driven-data* repository and press `View push commands`. There will appear a dialog window with four steps. Copy one by one the command and run them in local terminal.\
 ![Image 10.12](../media/image_10.12.PNG)
 
 After run first command it should display a success message as in image below.\
@@ -388,16 +388,16 @@ Navigate to the *Elastic Cloud Registry* service and access *driven-data* reposi
 ![Image 10.16](../media/image_10.16.PNG)
 
 #### Create App Runner
-Access *AWS App Runner* service and press `Create an App Runner service`. Choose `Container registry` for *Reposioty type* and `Amazon ECR` as a *Provider*. Browser for the image and select the *driven-data* repository and *latest* tag. Choose `Automatic` for *Deployment trigger* and `Create new service role` for *ECR access role*.\
+Access *AWS App Runner* service and press `Create an App Runner service`. Choose `Container registry` for *Repository type* and `Amazon ECR` as a *Provider*. Browser for the image and select the *driven-data* repository and *latest* tag. Choose `Automatic` for *Deployment trigger* and `Create new service role` for *ECR access role*.\
 ![Image 10.17](../media/image_10.17.PNG)
 
 #### Deploy dashboard
-Once the *App Runner* is setup it will start deployment process that can be monitored inside the process at *Logs* section. It will display a message with *Successfully deployed*.\
+Once the *App Runner* is set up it will start deployment process that can be monitored inside the process at *Logs* section. It will display a message with *Successfully deployed*.\
 ![Image 10.18](../media/image_10.18.PNG)
 
-The service *drivendata_service* now is available for use. The link for the dashoboard can be shared with stakeholders.\
+The service *drivendata_service* now is available for use. The link for the dashboard can be shared with stakeholders.\
 ![Image 10.19](../media/image_10.19.PNG)
 
 #### Test dashboard
-Navigate to the dashoboard by accessing the link in the *drivendata_service* and investigate all functionalities. Also, observe how graphs are updated in real time as the data are ingested in real time.\
+Navigate to the dashboard by accessing the link in the *drivendata_service* and investigate all functionalities. Also, observe how graphs are updated in real time as the data are ingested in real time.\
 ![Image 10.20](../media/image_10.20.PNG)

@@ -79,10 +79,10 @@ Topics are created in streams and contain logical collections of messages. These
 [StackOverflow - Kafka: Stream vs Topic](https://stackoverflow.com/questions/62336439/kafka-stream-vs-topic)
 
 ## Practice
-Implemention for the practical part of the chapter.
+Implementation for the practical part of the chapter.
 
 ### Setup Kafka
-In order to ingest streaming data there will need to setup a stream-processing pipeline and this will be done using Apache Kafka.\
+In order to ingest streaming data there will need to set up a stream-processing pipeline and this will be done using Apache Kafka.\
 Open Docker Desktop, pgAdmin 4, and VS Code.
 
 #### Create Docker Compose file
@@ -122,7 +122,7 @@ services:
 ```
 
 #### Run Kafka on Docker
-In terminal navigate to tg=he `src_7` directory and run the Docker compose using command from below. This command will deploy both containers described in *docker-compose.yml* file and will setup the *drivenDataNetwork* network.
+In terminal navigate to tg=he `src_7` directory and run the Docker compose using command from below. This command will deploy both containers described in *docker-compose.yml* file and will set up the *drivenDataNetwork* network.
 ```
 docker compose up -d
 ```
@@ -157,7 +157,7 @@ In *Docker Desktop* terminal introduce again the command that list all available
 ![Image 7.6](../media/image_7.6.PNG)
 
 #### Test topic
-Before the proper *producer* and *consumer* will be setup, as a test it can be send via *producer* dummy data and check if *consumer* receive them.\
+Before the proper *producer* and *consumer* will be setup, as a test it can be sent via *producer* dummy data and check if *consumer* receive them.\
 In order to start the *producer* enter the command from below. Replace `<container_id>` with the *id* of your *kafka-1* container id.\
 Enter some test words or sentences one by one and press `Enter`.
 ```
@@ -166,7 +166,7 @@ docker exec -it <container_id> kafka-console-producer.sh --bootstrap-server loca
 ![Image 7.7](../media/image_7.7.PNG)
 
 Open new terminal, navigate to the `src_7` directory. In order to start the *consumer* enter the command from below. Replace `<container_id>` with the *id* of your *kafka-1* container id. Now it can be seen that messages that were sent in *producer* are received in *consumer*, also can be seen that messages that were sent before the *consumer* was up are lost. This can be handled, but for now it is just required to start the *consumer* and after that the *producer*.\
-P.S. There is a intentional mistake in word *Hellow* to see that the same is received.
+P.S. There is an intentional mistake in word *Hellow* to see that the same is received.
 ```
 docker exec -it <container_id> kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic driven_data_stream
 ```
@@ -229,7 +229,7 @@ if __name__ == "__main__":
 ```
 
 #### Produce data
-In *VS Code* terminal run the command from below and it should start to produce data.
+In *VS Code* terminal run the command from below, and it should start to produce data.
 ```
 python streaming_producer.py
 ```
@@ -239,7 +239,7 @@ python streaming_producer.py
 The consumer is software that handle data from a topic. Data that are land in *drive_data_stream* will be consumed by the consumer that will be setup below.
 
 #### Create consumer
-In `src_7` directory create a file named `streaming_consumer.py`. In this file will be created few functions that will handle data ingestion using Kafka consumer, as well, here will be the logic of execution for the consumer. Schema and table also will created at this stage.\
+In `src_7` directory create a file named `streaming_consumer.py`. In this file will be created few functions that will handle data ingestion using Kafka consumer, as well, here will be the logic of execution for the consumer. Schema and table also will create at this stage.\
 Create a function `read_credentials()` that will read from `credentials.json` the credentials for database connection.
 ```
 def read_credentials(file_path: str) -> dict:
@@ -351,7 +351,7 @@ CREATE TABLE IF NOT EXISTS streaming_layer.streaming_data (
 ```
 
 #### Consume data
-In *VS Code* terminal run the command from below and it should start to ingest data.
+In *VS Code* terminal run the command from below, and it should start to ingest data.
 ```
 python streaming_consumer.py
 ```
@@ -361,7 +361,7 @@ python streaming_consumer.py
 The database used will be the same as for batch processing - *drivendata_db*.
 
 #### Prepare database
-In database *drivendata_db* are already created schemas for bacth processing that are deleted for now to not confuse the process. So, now it is available only *public* schema.
+In database *drivendata_db* are already created schemas for batch processing that are deleted for now to not confuse the process. So, now it is available only *public* schema.
 ![Image 7.11](../media/image_7.11.PNG)
 
 #### Check data
@@ -383,11 +383,11 @@ FROM
 ```
 ![Image 7.13](../media/image_7.13.PNG)
 
-Run the same query again after few seconds, as each records is produced at interval of 1-15 seconds, and there should be constantly increasing number of records.
+Run the same query again after few seconds, as each record is produced at interval of 1-15 seconds, and there should be constantly increasing number of records.
 ![Image 7.14](../media/image_7.14.PNG)
 
 ### Stop streaming
-The sreaming process is a continuous process, but because it was run locally it need to be stopped before exit from the development environment. To stop the streaming process use the command from below.
+The streaming process is a continuous process, but because it was run locally it need to be stopped before exit from the development environment. To stop the streaming process use the command from below.
 ```
 docker stop $(docker ps -q)
 ```
