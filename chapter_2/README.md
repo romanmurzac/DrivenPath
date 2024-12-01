@@ -6,7 +6,7 @@ For the second chapter/sprint, you need to investigate the data source for *Driv
 ## Assignment
 For this Sprint / Chapter your tasks include:
 1. **Read** the following topics in the [Theory](#theory) section:\
-    a. Extract Tranform Load.\
+    a. Extract Transform Load.\
     b. Batch processing.\
     c. Extract data.\
     d. Data normalization.\
@@ -58,7 +58,7 @@ Data extraction is the process of obtaining raw data from a source and replicati
 #### References
 [Stitch - What is Data Extraction? Data Extraction Tools & Techniques](https://www.stitchdata.com/resources/what-is-data-extraction/)\
 [Zapier - What is data extraction? And how to automate the process](https://zapier.com/blog/data-extraction/?msockid=19299d3c1eef6bd012a689b41f156a45)\
-[KnowledgeHut - What is Data Extraction? Examples, Tools & Techniques](https://www.knowledgehut.com/blog/data-science/data-extraction)
+[Airbyte - What is Data Extraction? Data Extraction Tools and Techniques](https://airbyte.com/data-engineering-resources/data-extraction)
 
 ### Data normalization
 #### Description
@@ -93,10 +93,10 @@ Whenever you work with any programming language, you might hear about various fr
 [GeeksforGeeks - What is a Framework?](https://www.knowledgehut.com/blog/data-science/data-extraction)
 
 ## Practice
-The implemention for the practical part for the chapter.
+The implementation for the practical part for the chapter.
 
 ### Investigate the data source
-Investigate data that are generated based on each user login to the internet platform of the *DataDriven* company and understand what is amount of existing data at this moment, what columns are available and what type of data they contains.\
+Investigate data that are generated based on each user login to the internet platform of the *DataDriven* company and understand what is amount of existing data at this moment, what columns are available and what type of data it contains.\
 After the investigation prepare to create the local ETL in order to create the pipeline.\
 Data contains 16 columns: person_name, user_name, email, personal_number, birth_date, address, phone, mac_address, ip_address, iban, accessed_at,
 session_duration, download_speed, upload_speed, consumed_traffic, unique_id.\
@@ -106,10 +106,10 @@ At this stage the company want to ingest all historical data and daily ingest da
 ### Extract data
 Data can be obtained through a few options: API, Scrapping, Crawling, Generator, Manual, etc.\
 For *DataDriven* it will be used a synthetic data generator that will mimic an API data generator.\
-As the data from the previous year are not big (~30 MB) it is not required an application for intesive processing, also the API from a real application will be replaced by a synthetic data generator. At this stage will be used Python for programming part, [Faker](https://faker.readthedocs.io/en/master/) library for synthetic data generation, and [Polars](https://docs.pola.rs/) library for data handling.
+As the data from the previous year are not big (~30 MB) it is not required an application for intensive processing, also the API from a real application will be replaced by a synthetic data generator. At this stage will be used Python for programming part, [Faker](https://faker.readthedocs.io/en/master/) library for synthetic data generation, and [Polars](https://docs.pola.rs/) library for data handling.
 
 #### Data generator
-To ingest historical data need to create a Framework (just a script a this moment; it will inscrease in complexity during next Chapters / Sprints).
+To ingest historical data need to create a Framework (just a script at this moment; it will increase in complexity during next Chapters / Sprints).
 
 Create a file in `src_2` directory and name it `batch_generator.py`, create a subdirectory named `data_2`. Replace `<path_to_drivenpath>` with your local path to the project location.
 ```
@@ -219,7 +219,7 @@ def write_to_csv(file_path: str, rows: int) -> None:
 
 ```
 
-Each records should be uniquely identified, for this will be added a new column named `unique_id` that will contain [UUID](https://medium.com/@gaspm/understanding-uuid-purpose-and-benefits-of-a-universal-unique-identifier-59110154d897) value. Polars will be used for this activity.
+Each record should be uniquely identified, for this will be added a new column named `unique_id` that will contain [UUID](https://medium.com/@gaspm/understanding-uuid-purpose-and-benefits-of-a-universal-unique-identifier-59110154d897) value. Polars will be used for this activity.
 ```
 def add_id(file_name) -> None:
     """
@@ -323,7 +323,7 @@ In `Connection` section introduce *localhost* as *Host name*, *postgres* as *Use
 In new created server create a database by `Right-click` on *DataDriven* server, choose `Create` -> `Database`.\
 ![Image 2.6](../media/image_2.6.PNG)
 
-In opened dialog box in *General* section introduce *datadriven_db* as *Databse* and press `Save`.\
+In opened dialog box in *General* section introduce *datadriven_db* as *Database* and press `Save`.\
 ![Image 2.7](../media/image_2.7.PNG)
 
 Now the database is available with a *public* schema and without tables.\
@@ -366,7 +366,7 @@ In *Tables* section now is present *batch_first_load* table.\
 The table is created and the columns defined, but the table contains no data. In order to upload source data `Right-click` on table icon choose `Import/Export data` option and in *General* section select the CSV file to be loaded.\
 ![Image 2.14](../media/image_2.14.PNG)
 
-If you move to the *Columns* section there should be visible all available columns. If the columns are not available make sure that table' columns were defined correct. After all settings are done press `OK`.\
+If you move to the *Columns* section there should be visible all available columns. If the columns are not available make sure that table columns were defined correct. After all settings are done press `OK`.\
 ![Image 2.15](../media/image_2.15.PNG)
 
 If all previous steps were performed correct the result should show a pop-up window with *Process completed*. If here is a *Process failed* message update previous step by riding message from current window.\
@@ -498,10 +498,10 @@ FROM
 ```
 
 ### Load data
-Once the data are in silver layer it be loaded to the golden layer. At this stage will be added some more logic to the existing tables and data will denormalized for different use cases. There will be a table in golden layer for calculation of daily payment bill amount for each user for *Financial Department* and another table for internet connection issue reporting for *Support Department*. Also, will be provided two denormalized tables with PII and non-PII data for future usage (these cases will be coverd in next Chapters).
+Once the data are in silver layer it be loaded to the golden layer. At this stage will be added some more logic to the existing tables and data will denormalize for different use cases. There will be a table in golden layer for calculation of daily payment bill amount for each user for *Financial Department* and another table for internet connection issue reporting for *Support Department*. Also, will be provided two denormalized tables with PII and non-PII data for future usage (these cases will be covered in next Chapters).
 
 #### Financial Data
-The table for financial usage will contain some calculus base don existing columns. The new table will contain all involved columns and one added column *payment_amount* that will store calulated value for payment for each user. Also, there will be the unique_id for user identification.
+The table for financial usage will contain some calculus base don existing columns. The new table will contain all involved columns and one added column *payment_amount* that will store calculated value for payment for each user. Also, there will be the unique_id for user identification.
 The formula for payment calculus involve: download_speed, upload_speed, session_duration, and consumed_traffic columns.
 ![Image 2.20](../media/image_2.20.PNG)
 
@@ -537,7 +537,7 @@ LIMIT
 ![Image 2.21](../media/image_2.21.PNG)
 
 #### Support Data
-The table for technical support usage will contain unique_id, address, mac_address, ip_address, download_speed, upload_speed, session_duration, and additional column *technical_data* with type boolean. The column *technical_data* will have value *true* if download_speed will be less then 50 MB, upload_speed will be less then 30 MB, and session_duration less then 1 min.
+The table for technical support usage will contain unique_id, address, mac_address, ip_address, download_speed, upload_speed, session_duration, and additional column *technical_data* with type boolean. The column *technical_data* will have value *true* if download_speed will be less than 50 MB, upload_speed will be less than 30 MB, and session_duration less than 1 min.
 
 To create the new golden layer table *technical_data* for Technical Support Department use `create_tech_dep` SQL query.
 ```

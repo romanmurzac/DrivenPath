@@ -3,7 +3,7 @@
 **NOTE:** This chapter involves working with cloud services that are charged by the cloud provider. Consult the [AWS Pricing Calculator](https://calculator.aws/#/) for a forecast of the estimated cost of the services used in this chapter. If you proceed with this chapter, you do so at your own responsibility, and the author has no responsibility for the resulting bill.
 
 ## Scenario
-For the ninth chapter/sprint, as *DrivenData* expects a significant increase in daily data volume and an increasing number of requests from other departments for various analytics, it is required to process the data from the previous two days stored in the data lake in the S3 bucket on a daily basis. The processing should involve filtering and aggregating the data, as well as adding additional columns based on existing ones. After the transformations, the data should be written back to the data lake. The following actions need to be performed: Check for missing values in emails and phone numbers. Ensure correct data types for birth dates and session durations. Delete duplicate records. Retain only the records from 2024 with a session duration longer than 30 minutes. Add a column for total consumed bandwidth. Add a column indicating the activity level of the user. Add a column with masked emails. Provide data for both filtered and grouped datasets.
+For the ninth chapter/sprint, as *DrivenData* expects a significant increase in daily data volume and an increasing number of requests from other departments for various analytics, it is required to process the data from the previous two days stored in the data lake in the S3 bucket on a daily basis. The processing should involve filtering and aggregating the data, as well as adding additional columns based on existing ones. After the transformations, the data should be written back to the data lake. The following actions need to be performed: Check for missing values in emails and phone numbers. Ensure correct data types for birthdate and session durations. Delete duplicate records. Retain only the records from 2024 with a session duration longer than 30 minutes. Add a column for total consumed bandwidth. Add a column indicating the activity level of the user. Add a column with masked emails. Provide data for both filtered and grouped datasets.
 
 ## Assignment
 For this Sprint / Chapter your tasks include:
@@ -67,11 +67,11 @@ A DataFrame is a two-dimensional labeled data structure with columns of potentia
 [PhoenixNap - What Is a Spark DataFrame?](https://phoenixnap.com/kb/spark-dataframe)
 
 ## Practice
-Implemention for the practical part of the chapter.
+Implementation for the practical part of the chapter.
 
 ### Develop local pipeline
 Based on the requirements it will be developed local pipeline using [Google Colab Notebook](https://colab.research.google.com/notebook).\
-In this Notebook it will be handled missing values for *email* and *phone* columns; provided correct datatypes for *birth_date* and *session_duration* columns; deleted duplicated records based on *unique_id*; filtered only the records that are *accessed_at* in 2024 and have a *session_duration* longer than 30 minutes and returned as a separate file; added column for *total_bandwith*; add a column for *activity_level* of the user; add a column with *masked_email*; returned file for grouped data.
+In this Notebook it will be handled missing values for *email* and *phone* columns; provided correct datatypes for *birth_date* and *session_duration* columns; deleted duplicated records based on *unique_id*; filtered only the records that are *accessed_at* in 2024 and have a *session_duration* longer than 30 minutes and returned as a separate file; added column for *total_bandwidth*; add a column for *activity_level* of the user; add a column with *masked_email*; returned file for grouped data.
 
 #### Intro Google Colab Notebook
 Access [Google Colab Notebook](https://colab.research.google.com/notebook) and create a new Notebook.\
@@ -148,7 +148,7 @@ df_grouped.show()
 ```
 ![Image 9.6](../media/image_9.6.PNG)
 
-Add a new column *total_bandwith* by sum up *download_speed* and *upload_speed* columns using first code block. Add a new column *activity_level* using second code block. Add a new column *masked_email* using third code block.
+Add a new column *total_bandwidth* by sum up *download_speed* and *upload_speed* columns using first code block. Add a new column *activity_level* using second code block. Add a new column *masked_email* using third code block.
 ```
 df = df.withColumn(
     "total_bandwidth", col("download_speed") + col("upload_speed"))
@@ -173,7 +173,7 @@ df.agg({"session_duration": "max"}).show()
 ```
 ![Image 9.7](../media/image_9.7.PNG)
 
-Get the total of the *consumed_traffic* by user *ip_address* and order the results in descendent order.
+Get the total of the *consumed_traffic* by user *ip_address* and order the results in descendant order.
 ```
 df_ip_activity = df.groupBy("ip_address").agg(
     {"consumed_traffic": "sum"}).orderBy(
@@ -209,7 +209,7 @@ Navigate to *S3* service in AWS. Create a S3 bucket named `driven-data-bucket` a
 ![Image 9.12](../media/image_9.12.PNG)
 
 #### Create IAM role
-Navigate to *IAM* servive in AWS and choose *Role* section. Create a new role by choosing `AWS service` for the *Trusted entity type*. Select `Glue` option for the *Use case*.\
+Navigate to *IAM* service in AWS and choose *Role* section. Create a new role by choosing `AWS service` for the *Trusted entity type*. Select `Glue` option for the *Use case*.\
 ![Image 9.13](../media/image_9.13.PNG)
 
 Choose `AWSGlueConsoleFullAccess` and `AmazonS3FullAccess` policies. The policies should allow access only to run a specific Glue job and to read and write to a specific bucket, for this the policies can be updated accordingly.\
@@ -292,19 +292,19 @@ job.commit()
 ```
 
 #### Schedule pipeline run
-For the current GLue job access the `Schedule job run` section. Enter `Daily_drivenData_Transform` as a *Name*. Select `Daily` for *Frequency* option. Eneter `8` as *Start hour* and `0` as *Minute of the hour*. Provide a description for the scheduler.\
+For the current GLue job access the `Schedule job run` section. Enter `Daily_drivenData_Transform` as a *Name*. Select `Daily` for *Frequency* option. Enter `8` as *Start hour* and `0` as *Minute of the hour*. Provide a description for the scheduler.\
 ![Image 9.18](../media/image_9.18.PNG)
 
 #### Run Glue job
-As the Glue job is ready to be run, now it will run on daily basis at 08:00 AM. In this section will be displayed all runs of the job with all related informations and logs related to the specific run.\
+As the Glue job is ready to be run, now it will run on daily basis at 08:00 AM. In this section will be displayed all runs of the job with all related information and logs related to the specific run.\
 ![Image 9.19](../media/image_9.19.PNG)
 
  Also, the job can be triggered manually by pressing `Run`. After the job was run the output logs can be monitored in *CloudWatch*. Also, it will display the status of each run.\
 ![Image 9.20](../media/image_9.20.PNG)
 
 #### Validate transformed data
-Navigate to *S3* service in AWS and select *driven-data-bucket*. Inside the bucket will be created a new directory named `transformed_data`. Inside of the new directory will be two subdirectories `filtered` and `grouped` where all output files will be stored.\
+Navigate to *S3* service in AWS and select *driven-data-bucket*. Inside the bucket will be created a new directory named `transformed_data`. Inside the new directory will be two subdirectories `filtered` and `grouped` where all output files will be stored.\
 ![Image 9.21](../media/image_9.21.PNG)
 
-Access the file inside each subdirectories and download the to validate the data or query them directly in the datalake. Or make them available in the Athena database and make more complex query there for data validation.\
+Access the file inside each subdirectory and download the to validate the data or query them directly in the datalake. Or make them available in the Athena database and make more complex query there for data validation.\
 ![Image 9.22](../media/image_9.22.PNG)

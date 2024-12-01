@@ -1,4 +1,4 @@
-# **Chapter 1:** Introduction to Big Data Engineering 
+# **Chapter 1:** Introduction to Data Engineering 
 
 ## Scenario
 You have been hired as a **Junior Data Engineer** at **DrivenData**.\
@@ -46,7 +46,7 @@ Big data refers to extremely large and diverse collections of structured, unstru
 #### Description
 A data engineer integrates, transforms, and consolidates data from various structured and unstructured data systems into structures that are suitable for building analytics solutions. The data engineer also helps design and support data pipelines and data stores that are high-performing, efficient, organized, and reliable, given a specific set of business requirements and constraints.
 #### References
-[MongoDB - Data ENgineering Explained](https://www.mongodb.com/resources/basics/data-engineering#:~:text=Data%20engineering%20is%20the%20discipline,draw%20valuable%20insights%20from%20it.)\
+[MongoDB - Data Engineering Explained](https://www.mongodb.com/resources/basics/data-engineering#:~:text=Data%20engineering%20is%20the%20discipline,draw%20valuable%20insights%20from%20it.)\
 [dremio - Introduction to Data Engineering](https://www.dremio.com/resources/guides/intro-data-engineering/)\
 [Redpanda - Data engineering 101](https://www.redpanda.com/guides/fundamentals-of-data-engineering)
 
@@ -67,14 +67,14 @@ Amazon Web Service, or AWS, is an online platform providing cost-effective, scal
 [AWS - Cloud computing with AWS](https://aws.amazon.com/what-is-aws/)
 
 ## Practice
-The implemention for the practical part for the chapter.
+The implementation for the practical part for the chapter.
 
 ### Create Accounts
 Set up accounts for the services commonly used by a data engineer.
 
 #### AWS
 Access [AWS Free Tier](https://aws.amazon.com/free/?gclid=Cj0KCQjwlvW2BhDyARIsADnIe-IgwrWgVraM9DbxPuBhtXrzhDOv1RoLsFkd13_kZDe0KCPqFPb3rjAaAiKSEALw_wcB&trk=9ab5159b-247d-4917-a0ec-ec01d1af6bf9&sc_channel=ps&ef_id=Cj0KCQjwlvW2BhDyARIsADnIe-IgwrWgVraM9DbxPuBhtXrzhDOv1RoLsFkd13_kZDe0KCPqFPb3rjAaAiKSEALw_wcB:G:s&s_kwcid=AL!4422!3!645133561110!e!!g!!create%20aws%20account!19579657595!152087369744&all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all) page and press `Create a Free Account` button in center of the page.\
-If you have already have an account just press `Sign in to an existing AWS account`.\
+If you already have an account just press `Sign in to an existing AWS account`.\
 You can follow instructions below or access [Create Your AWS Account](https://aws.amazon.com/getting-started/guides/setup-environment/module-one/) and follow instruction from there.\
 ![AWS Free Tier](../media/image_1.1.PNG)
 
@@ -90,7 +90,7 @@ You will be redirected to a new screen where you will create your root user pass
 1 - Choose between a business or personal account.\
 There is no difference in account type or functionality, but there is a difference in the type of information required to open the account for billing purposes.
 For a business account, choose a phone number that is tied to the business and can be reached if the person setting up the account is not available.\
-2 - Once you have selected the account type, fill out the the contact information about the account.
+2 - Once you have selected the account type, fill out the contact information about the account.
 Save these details in a safe place. If you ever lose access to the email or your two-factor authentication device, AWS Support can use these details to confirm your identity.\
 3 - At the end of this form, please read through the terms of the AWS Customer Agreement and select the checkbox to accept them.\
 4 - Choose Continue (step 2 of 5) to proceed to the next screen.\
@@ -121,14 +121,14 @@ Your account is now set up and being activated. When activation is complete, you
 
 #### GitHub
 Access [GitHub](https://github.com/) page and press `Sign up` button in right corner of the page.\
-If you have already have an account just press `Sign  in` and login using existing credentials.\
+If you already have an account just press `Sign  in` and login using existing credentials.\
 You can follow instructions below or access [Creating an account on GitHub](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github) and follow instruction from there.\
 ![GitHub account](../media/image_1.7.PNG)
 
 **Step 1 - Select credentials**\
 Provide an email address that is not use for another GitHub account.\
 Create a strong password that contains minimum 8 characters and strong enough to pass the verification from GitHub.\
-Provide an username for your account.\
+Provide a username for your account.\
 Choose the option for receive announcements from GitHub.\
 ![Select credentials](../media/image_1.8.PNG)
 
@@ -137,7 +137,7 @@ Solve three puzzles in order to check that you're a human.
 ![Pass verification](../media/image_1.9.PNG)
 
 **Step 3 - Confirm email address**\
-We'll receive a 8 digit code from Github on your email address that you used for account setup. Copy the code in current page.
+We'll receive an 8-digit code from GitHub on your email address that you used for account setup. Copy the code in current page.
 ![Confirm email address](../media/image_1.10.PNG)
 
 **Step 4 - Choose you plan**\
@@ -145,14 +145,14 @@ Choose the plan for your account. For your personal use the free account is alwa
 ![Choose you plan](../media/image_1.11.PNG)
 
 ### Install software
-Install necessary softwares used in daily work of a Data Engineer.
+Install necessary software used in daily work of a Data Engineer.
 
 #### Python
 Access [Python site](https://www.python.org/downloads/) page and press `Download Python 3.<version>` button in center of the page.\
 You can follow instructions below or access [How to Install Python on Your System: A Guide](https://realpython.com/installing-python/) and follow instruction from there.\
 ![Python site](../media/image_1.12.PNG)
 
-Pressing the button from above you'll download Python Installer on your local machine. Once you have it downloaded, navigate to your `Download` directory, identify Python Installer and double click on it. The pop-up window will appear, from this window choose `Customize installation` and check both check boxes available: `Install launcher for all users` and `Add Python to PATH`.
+Pressing the button from above you'll download Python Installer on your local machine. Once you have it downloaded, navigate to your `Download` directory, identify Python Installer and double-click on it. The pop-up window will appear, from this window choose `Customize installation` and check both check boxes available: `Install launcher for all users` and `Add Python to PATH`.
 ![Python window](../media/image_1.13.PNG)
 
 Also, a recommendation is to install all optional features.\
@@ -170,7 +170,7 @@ Access [VS Code site](https://code.visualstudio.com/) page and press `Download f
 You can follow instructions below for installation on your machine or access [VS Code online](https://vscode.dev/) and work directly from there.
 ![VS Code site](../media/image_1.16.PNG)
 
-Pressing the button from above you'll download VS Code Installer on your local machine. Once you have it downloaded, navigate to your `Download` directory, identify VS Code Installer and double click on it. The pop-up window will appear, from this window select all available options or choose those that you need.\
+Pressing the button from above you'll download VS Code Installer on your local machine. Once you have it downloaded, navigate to your `Download` directory, identify VS Code Installer and double-click on it. The pop-up window will appear, from this window select all available options or choose those that you need.\
 ![Python window](../media/image_1.17.PNG)
 
 Once installation process is completed, press `Finish` button and launch the VS Code editor.\
@@ -184,7 +184,7 @@ You can follow instructions below or access [Install Docker Desktop](https://doc
 Double-click `Docker Desktop Installer.exe` to run the installer. By default, Docker Desktop is installed at `C:\Program Files\Docker\Docker`.\
 When prompted, ensure the Use WSL 2 instead of Hyper-V option on the Configuration page is selected or not depending on your choice of backend.\
 If your system only supports one of the two options, you won't be able to select which backend to use.\
-Follow the instructions on the installation wizard to authorize the installer and proceed with the install.\
+Follow the instructions on the installation wizard to authorize the installer and proceed with the installation.\
 ![Docker installation](../media/image_1.20.PNG)
 
 When the installation is successful, select `Close` to complete the installation process.\
@@ -200,7 +200,7 @@ Access [pgAdmin 4](https://www.pgadmin.org/download/pgadmin-4-windows/) page and
 ![pgAdmin site](../media/image_1.22.PNG)
 
 #### AWS CLI
-Access [AWS CLI installer](https://awscli.amazonaws.com/AWSCLIV2.msi) page and it will be downloaded automatically to your machine.\
+Access [AWS CLI installer](https://awscli.amazonaws.com/AWSCLIV2.msi) page, and it will be downloaded automatically to your machine.\
 You can follow instructions below or access [Install or update to the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and follow instruction from there.\
 
 To update your current installation of AWS CLI on Windows, download a new installer each time you update to overwrite previous versions. AWS CLI is updated regularly.\

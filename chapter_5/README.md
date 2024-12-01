@@ -47,14 +47,14 @@ HashiCorp Terraform is an infrastructure as code tool that lets you define both 
 [GitHub - Terraform](https://github.com/hashicorp/terraform)
 
 ## Practice
-Implemention for the practical part of the chapter.
+Implementation for the practical part of the chapter.
 
 ### Setup services
-Before proceed to automate the infrastructure, it is required to setup few things such as: create an IAM user in AWS, install AWS CLI, and install Terraform on your local machine.
+Before proceed to automate the infrastructure, it is required to set up few things such as: create an IAM user in AWS, install AWS CLI, and install Terraform on your local machine.
 
 #### Create IAM user
 Login to your AWS account with the *root* user. Navigate to *IAM* service and choose `Users` option. Press `Create user` and provide a name to your user, recommended to be `admin` as it will have the same / almost the same rights as the *root* user. Check the `Provide user access to the AWS Management Console` option and choose `I want to create an IAM user`. For *Console password* choose any as the password will be reset on fist login and press `Next`. From `Permissions options` choose `Attach policies directly` and select `AdministratorAccess` policy. Press `Create user`.\
-You'll receive URL for Console login, user name, and password.
+You'll receive URL for Console login, username, and password.
 ![Image 5.1](../media/image_5.1.PNG)
 
 Using received URL login to your account via created user `admin`. Use *Account ID* from your account.\
@@ -117,7 +117,7 @@ resource "aws_s3_bucket" "s3_bucket" {
 ```
 
 #### Run Terraform init
-In terminal navigate to the `test_terraform` directory and run `terraform init` command. This command will initialize the terraform in this directory and will track the infrastructure in this directory.
+In terminal navigate to the `test_terraform` directory and run `terraform init` command. This command will initialize terraform in this directory and will track the infrastructure in this directory.
 ```
 terraform init
 ```
@@ -519,7 +519,7 @@ aws_s3_bucket.driven_data_bucket: Creating...
 
 #### Check deployed pipeline
 After the deployment is finished and all resources are available, the pipeline can be run.\
-Navigate to the *MWAA* and will see the *driven-data-airflow-environment* avaialble.
+Navigate to the *MWAA* and will see the *driven-data-airflow-environment* available.
 ![Image 5.17](../media/image_5.17.PNG)
 
 On each resource that was deployed it can be seen the tag *driven_data* available. Tagging the resources based on different keys is very important for resource management.
@@ -547,5 +547,5 @@ terraform destroy
 ```
 ![Image 5.24](../media/image_5.24.PNG)
 
-**Note:** Cloud computing is not free, deploying resources few times and running pipeline for two day costs ~30 USD. Not use billable services if don't want to be charged by using AWS services.
+**Note:** Cloud computing is not free, deploying resources few times and running pipeline for two day costs ~30 USD. Not use billable services if you don't want to be charged by using AWS services.
 ![Image 5.25](../media/image_5.25.PNG)
