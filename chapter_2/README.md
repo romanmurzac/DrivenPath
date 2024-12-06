@@ -56,9 +56,9 @@ Batch processing is a computational technique in which a collection of data is a
 #### Description
 Data extraction is the process of obtaining raw data from a source and replicating that data somewhere else. The raw data can come from various sources, such as a database, Excel spreadsheet, an SaaS platform, web scraping, or others. It can then be replicated to a destination, such as a data warehouse, designed to support online analytical processing (OLAP). This can include unstructured data, disparate types of data, or simply data that is poorly organized. Once the data has been consolidated, processed, and refined, it can be stored in a central location — on-site, in cloud storage, or a hybrid of both — to await transformation or further processing.
 #### References
+[Airbyte - What is Data Extraction? Data Extraction Tools and Techniques](https://airbyte.com/data-engineering-resources/data-extraction)\
 [Stitch - What is Data Extraction? Data Extraction Tools & Techniques](https://www.stitchdata.com/resources/what-is-data-extraction/)\
-[Zapier - What is data extraction? And how to automate the process](https://zapier.com/blog/data-extraction/?msockid=19299d3c1eef6bd012a689b41f156a45)\
-[Airbyte - What is Data Extraction? Data Extraction Tools and Techniques](https://airbyte.com/data-engineering-resources/data-extraction)
+[Zapier - What is data extraction? And how to automate the process](https://zapier.com/blog/data-extraction/?msockid=19299d3c1eef6bd012a689b41f156a45)
 
 ### Data normalization
 #### Description

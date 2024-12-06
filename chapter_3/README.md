@@ -62,8 +62,8 @@ Docker is a software platform that allows you to build, test, and deploy applica
 #### Description
 Docker Compose is a tool for running multi-container applications on Docker defined using the Compose file format. A Compose file is used to define how one or more containers that make up your application are configured. Once you have a Compose file, you can create and start your application with a single command: docker compose up.
 #### References
-[GitHub - Docker compose](https://github.com/docker/compose)\
 [Docker docs - Docker Compose overview](https://docs.docker.com/compose/)\
+[GitHub - Docker compose](https://github.com/docker/compose)\
 [TutorialsPoint - Docker - Compose](https://www.tutorialspoint.com/docker/docker_compose.htm)
 
 ### Docker Desktop
@@ -72,15 +72,15 @@ Docker Desktop is a one-click-install application for your Mac, Linux, or Window
 It provides a straightforward GUI (Graphical User Interface) that lets you manage your containers, applications, and images directly from your machine.
 Docker Desktop reduces the time spent on complex setups so you can focus on writing code. It takes care of port mappings, file system concerns, and other default settings, and is regularly updated with bug fixes and security updates.
 #### References
-[Docker docs - Install Docker Desktop](https://docs.docker.com/desktop/install/windows-install/)\
-[Docker docs - Overview of Docker Desktop](https://docs.docker.com/desktop/)
+[Docker docs - Overview of Docker Desktop](https://docs.docker.com/desktop/)\
+[Docker docs - Install Docker Desktop](https://docs.docker.com/desktop/install/windows-install/)
 
 ### Docker Hub
 #### Description
 Docker Hub is a container registry built for developers and open source contributors to find, use, and share their container images. With Hub, developers can host public repos that can be used for free, or private repos for teams and enterprises.
 #### References
-[Docker Hub](https://hub.docker.com/)\
-[Docker docs - Overview of Docker Hub](https://docs.docker.com/docker-hub/)
+[Docker docs - Overview of Docker Hub](https://docs.docker.com/docker-hub/)\
+[Docker Hub](https://hub.docker.com/)
 
 ### Airflow
 #### Description
@@ -88,10 +88,9 @@ Apache Airflow (or simply Airflow) is a platform to programmatically author, sch
 When workflows are defined as code, they become more maintainable, testable, and collaborative.
 Use Airflow to author workflows as directed acyclic graphs (DAGs) of tasks. The Airflow scheduler executes your tasks on an array of workers while following the specified dependencies. Rich command line utilities make performing complex surgeries on DAGs a snap. The rich user interface makes it easy to visualize pipelines running in production, monitor progress, and troubleshoot issues when needed.
 #### References
+[Apache Airflow](https://airflow.apache.org/)\
 [GitHub - Apache Airflow](https://github.com/apache/airflow)\
-[Run AI - Apache Airflow
-Use Cases, Architecture, and Best Practices](https://www.run.ai/guides/machine-learning-operations/apache-airflow#:~:text=Apache%20Airflow%20is%20an%20open,be%20easily%20scheduled%20and%20monitored.)\
-[Apache Airflow](https://airflow.apache.org/)
+[Run AI - Apache Airflow Use Cases, Architecture, and Best Practices](https://www.run.ai/guides/machine-learning-operations/apache-airflow#:~:text=Apache%20Airflow%20is%20an%20open,be%20easily%20scheduled%20and%20monitored.)
 
 ### Airflow DAG
 #### Description

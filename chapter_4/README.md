@@ -58,8 +58,8 @@ Amazon Simple Storage Service (Amazon S3) is an object storage service that offe
 #### Description
 Identity and access management (IAM or IdAM for short) is a way to tell who a user is and what they are allowed to do. IAM is like the bouncer at the door of a nightclub with a list of who is allowed in, who isn't allowed in, and who is able to access the VIP area. IAM is also called identity management (IdM).
 #### References
-[CloudFlare - What is identity and access management (IAM)?](https://www.cloudflare.com/learning/access-management/what-is-identity-and-access-management/)\
-[AWS - AWS Identity and Access Management](https://aws.amazon.com/iam/)
+[AWS - AWS Identity and Access Management](https://aws.amazon.com/iam/)\
+[CloudFlare - What is identity and access management (IAM)?](https://www.cloudflare.com/learning/access-management/what-is-identity-and-access-management/)
 
 ### Managed Workflows for Apache Airflow
 #### Description
