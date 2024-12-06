@@ -8,7 +8,7 @@ For the sixth chapter/sprint, it is required to implement Continuous Integration
 ## Assignment
 For this Sprint / Chapter your tasks include:
 1. **Read** the following topics in the [Theory](#theory) section:\
-    a. Continuous Integration and Continuous Deployment.
+    a. Continuous Integration and Continuous Deployment.\
     b. GitHub Actions.
 
 2. **Implement** the steps in the [Practice](#practice) section for *DataDriven* company:\
@@ -32,8 +32,8 @@ The main theoretical notions for the chapter along with resources for self-paced
 CI And CD is the practice of automating the integration of code changes from multiple developers into a single codebase. It is a software development practice where the developers commit their work frequently to the central code repository. Then there are automated tools that build the newly committed code and do a code review, etc. as required upon integration.
 The key goals of Continuous Integration are to find and address bugs quicker, make the process of integrating code across a team of developers easier, improve software quality, and reduce the time it takes to release new feature updates. 
 #### References
-[RedHat - What is CI/CD?](https://www.redhat.com/en/topics/devops/what-is-ci-cd)\
 [GitLab - What is CI/CD?](https://about.gitlab.com/topics/ci-cd/)\
+[RedHat - What is CI/CD?](https://www.redhat.com/en/topics/devops/what-is-ci-cd)\
 [Atlassian - Continuous integration vs. delivery vs. deployment](https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment)
 
 ### GitHub Actions

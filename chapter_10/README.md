@@ -42,8 +42,9 @@ The main theoretical notions for the chapter along with resources for self-paced
 #### Description
 A dashboard is a way of displaying various types of visual data in one place. Usually, a dashboard is intended to convey different, but related information in an easy-to-digest form. And oftentimes, this includes things like key performance indicators or other important business metrics that stakeholders need to see and understand at a glance.
 #### References
-[Databox - What is a Data Dashboard? Definition, Benefits, and Examples](https://databox.com/data-dashboard)\
+
 [Tableau - What is a dashboard? A complete overview](https://www.tableau.com/dashboard/what-is-dashboard)\
+[Databox - What is a Data Dashboard? Definition, Benefits, and Examples](https://databox.com/data-dashboard)\
 [Amplitude - How to Build the Perfect Analytics Dashboard](https://amplitude.com/blog/analytics-dashboard)
 
 ### Dash
