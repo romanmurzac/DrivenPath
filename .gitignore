@@ -9,3 +9,4 @@ consumer_package/
 producer_package/
 *.xml
 *.iml
+.idea
