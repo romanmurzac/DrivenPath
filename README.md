@@ -121,8 +121,5 @@ By following these steps, you can effectively manage your cloud expenses.
 ## Contributing
 Contributions are welcome! If you find issues or have ideas for improvements, feel free to fork or clone the repository and submit a pull request.
 
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
 ## Contact
-If you have questions or need support, please open an issue in the repository or reach out via [LinkedIn](https://www.linkedin.com/in/roman-murzac/).
+If you have questions or need support, please open an issue in the repository or reach out via [LinkedIn](https://www.linkedin.com/in/roman-murzac/) or via [email](mailto:rmurz@softserveinc.com).
