@@ -90,7 +90,7 @@ Whenever you work with any programming language, you might hear about various fr
 #### References
 [Medium - How you can master a new data engineering framework?](https://medium.com/@sounder.rahul/how-you-can-master-a-new-data-engineering-framework-e3a7c31458e5)\
 [Medium - Top 6 data engineering frameworks to learn](https://blog.insightdatascience.com/top-6-data-engineering-frameworks-to-learn-b124f9b71ba5)\
-[GeeksforGeeks - What is a Framework?](https://www.knowledgehut.com/blog/data-science/data-extraction)
+[GeeksforGeeks - What is a Framework?](https://www.geeksforgeeks.org/what-is-a-framework/)
 
 ## Practice
 The implementation for the practical part for the chapter.
