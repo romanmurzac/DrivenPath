@@ -1,0 +1,7 @@
+1. Import data: "Header" option on the "Options" tab has to be enabled. I did not see that mentioned in the instruction and
+spent 1.5 hrs to figure it out. Without setting this option, you will be getting error messages during the data import
+saying that integer/date/numeric fields have invalid values.
+
+2. In different places of the instruction I can see the company is named both "DrivenData" and "LeadData".
+
+3. I'd like to have a requirements.txt file with all python deps listed.

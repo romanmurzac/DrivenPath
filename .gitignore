@@ -10,3 +10,4 @@ producer_package/
 *.xml
 *.iml
 .idea
+**/.DS_Store
