@@ -143,7 +143,8 @@ Retrieve the `docker-compose.yml` file or [copy](https://airflow.apache.org/docs
 ```
 curl -LfO 'https://airflow.apache.org/docs/apache-airflow/2.10.2/docker-compose.yaml'
 ```
-Now you can run the basic Apache Airflow on your local machine.
+Now you can run the basic Apache Airflow on your local machine.\
+**Note:** If the current version is not supported, please make sure to consult [Airflow Releases Notes](https://airflow.apache.org/docs/apache-airflow/stable/release_notes.html) for most recent version.
 
 #### Update Docker Compose file
 For current work there is needed to update the `docker-compose.yml` file and create custom image using as a template updated `docker-compose.yml` file.

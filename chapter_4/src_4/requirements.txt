@@ -1,0 +1,4 @@
+dbt-core==1.8.0
+dbt-postgres==1.8.2
+faker==18.4.0
+polars==1.8.1

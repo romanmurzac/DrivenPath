@@ -1,0 +1,5 @@
+boto==2.49.0
+dash==2.18.1
+dash-core-components==2.0.0
+dash-html-components==2.0.0
+pandas==2.2.3
