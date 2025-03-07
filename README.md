@@ -93,7 +93,7 @@ python3 -m venv venv
 venv/Scripts/activate
 ```
 
-7. Install dependencies
+7. Install dependencies.\
 Install all dependecies packages necessary for Python:
 ```
 pip install -r requirements.txt
