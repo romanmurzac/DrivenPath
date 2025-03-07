@@ -86,7 +86,7 @@ In order to ingest streaming data there will need to set up a stream-processing 
 Open Docker Desktop, pgAdmin 4, and VS Code.
 
 #### Create Docker Compose file
-In `src_7` directory create a `docker-compose.yml` file and paste the content from below. This will deploy two containers, one for Kafka and one for Zookeeper.
+In `work_7` directory create a `docker-compose.yml` file and paste the content from below. This will deploy two containers, one for Kafka and one for Zookeeper.
 ```
 version: "3"
 networks:
@@ -122,7 +122,7 @@ services:
 ```
 
 #### Run Kafka on Docker
-In terminal navigate to tg=he `src_7` directory and run the Docker compose using command from below. This command will deploy both containers described in *docker-compose.yml* file and will set up the *drivenDataNetwork* network.
+In terminal navigate to tg=he `work_7` directory and run the Docker compose using command from below. This command will deploy both containers described in *docker-compose.yml* file and will set up the *drivenDataNetwork* network.
 ```
 docker compose up -d
 ```
@@ -134,7 +134,7 @@ docker ps
 ```
 ![Image 7.2](../media/image_7.2.PNG)
 
-Also, the running containers and their images can be seen in the Docker Desktop, under *src_7* will be *kafka-1* and *zookeeper-1* containers running.\
+Also, the running containers and their images can be seen in the Docker Desktop, under *work_7* will be *kafka-1* and *zookeeper-1* containers running.\
 ![Image 7.3](../media/image_7.3.PNG)
 
 ### Setup topic
@@ -165,7 +165,7 @@ docker exec -it <container_id> kafka-console-producer.sh --bootstrap-server loca
 ```
 ![Image 7.7](../media/image_7.7.PNG)
 
-Open new terminal, navigate to the `src_7` directory. In order to start the *consumer* enter the command from below. Replace `<container_id>` with the *id* of your *kafka-1* container id. Now it can be seen that messages that were sent in *producer* are received in *consumer*, also can be seen that messages that were sent before the *consumer* was up are lost. This can be handled, but for now it is just required to start the *consumer* and after that the *producer*.\
+Open new terminal, navigate to the `work_7` directory. In order to start the *consumer* enter the command from below. Replace `<container_id>` with the *id* of your *kafka-1* container id. Now it can be seen that messages that were sent in *producer* are received in *consumer*, also can be seen that messages that were sent before the *consumer* was up are lost. This can be handled, but for now it is just required to start the *consumer* and after that the *producer*.\
 P.S. There is an intentional mistake in word *Hellow* to see that the same is received.
 ```
 docker exec -it <container_id> kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic driven_data_stream
@@ -176,7 +176,7 @@ docker exec -it <container_id> kafka-console-consumer.sh --bootstrap-server loca
 The producer is software that handle produced data. In this case, data are produced as in previous chapters. Data generation part was updated a little bit to fit the output format.
 
 #### Create producer
-In `src_7` directory create a file named `streaming_producer.py`. In this file will be created few functions that will handle data generation and Kafka producer, as well, here will be the logic of execution for the producer.\
+In `work_7` directory create a file named `streaming_producer.py`. In this file will be created few functions that will handle data generation and Kafka producer, as well, here will be the logic of execution for the producer.\
 Create a function `generate_records()` that will generate synthetic data using code from below.
 ```
 def generate_record(fake: Faker) -> list:
@@ -239,7 +239,7 @@ python streaming_producer.py
 The consumer is software that handle data from a topic. Data that are land in *drive_data_stream* will be consumed by the consumer that will be setup below.
 
 #### Create consumer
-In `src_7` directory create a file named `streaming_consumer.py`. In this file will be created few functions that will handle data ingestion using Kafka consumer, as well, here will be the logic of execution for the consumer. Schema and table also will create at this stage.\
+In `work_7` directory create a file named `streaming_consumer.py`. In this file will be created few functions that will handle data ingestion using Kafka consumer, as well, here will be the logic of execution for the consumer. Schema and table also will create at this stage.\
 Create a function `read_credentials()` that will read from `credentials.json` the credentials for database connection.
 ```
 def read_credentials(file_path: str) -> dict:

@@ -134,7 +134,7 @@ All of them at this moment should be empty as there was nothing run yet.
 As here are needed multiple container to hold the whole infrastructure, install [Docker Compose](https://docs.docker.com/compose/install/).\
 Open a terminal and navigate to the project directory by changing `<your_path>` with your actual location and open it in VS Code.
 ```
-cd C:\<your_path>\DrivenPath\chapter_3\src_3
+cd C:\<your_path>\DrivenPath\chapter_3\work_3
 code .
 ```
 
@@ -551,9 +551,9 @@ Once all previous stages are completed the project is in the same state as in *t
 
 #### Run containers
 To run the Airflow it is needed to run the Docker Containers that were created previously via `docker-compose.yml` and `Dockerfile` where the Airflow was set up.\
-Make sure that the Docker Desktop is running. In VS Code open a terminal, make sure that you're in correct directory: `chapter_3/src_3`.
+Make sure that the Docker Desktop is running. In VS Code open a terminal, make sure that you're in correct directory: `chapter_3/work_3`.
 ```
-cd src_3
+cd work_3
 ```
 To build image and run Docker Compose use the command below.
 ```
@@ -599,7 +599,7 @@ Navigate to `Admin`->`Connection` menu and create new connection. Complete all f
 ![Image 3.13](../media/image_3.13.PNG)
 
 #### Create DAG
-Create `driven_data_pipeline.py` file in `src_3/dags` directory.\
+Create `driven_data_pipeline.py` file in `work_3/dags` directory.\
 Define default arguments and the DAG parameters.
 ```
 # Define the default arguments for DAG.
@@ -707,7 +707,7 @@ create_raw_table_task >> load_raw_data_task >> run_dbt_staging_task
 run_dbt_staging_task >> run_dbt_trusted_task
 ```
 
-The full content of the DAG can be found in `src_3/dags` directory. After saving the file, as a result the DAG will be displayed in the Airflow environment.
+The full content of the DAG can be found in `work_3/dags` directory. After saving the file, as a result the DAG will be displayed in the Airflow environment.
 ![Image 3.14](../media/image_3.14.PNG)
 
 Click on the DAG name and access it. In the DAG you'll see the tasks defined in DAG file as a column. In `Graph` section can be seen the schema of execution of the tasks
