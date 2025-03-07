@@ -137,7 +137,7 @@ if __name__ == "__main__":
     logging.info(f"Started batch processing for {date.today()}.")
 
     # Define the output file name with today's date.
-    output_file = f"chapter_2/src_2/data_2/batch_{date.today()}.csv"
+    output_file = f"chapter_2/work_2/data_2/batch_{date.today()}.csv"
 
     # Define number of records: first run - 10_372; next runs random number.
     if str(date.today()) == "2024-09-14":

@@ -76,7 +76,7 @@ Implementation for the practical part of the chapter.
 As the data are ingested both, in batch and streaming and all processes are in place, from streaming data can be created a dashboard for technical and business needs. For this purpose will be created a dashboard that allow users to view in real time five different visualizations based on selected parameters.
 
 #### Create dashboard
-In directory `src_10` create a file `dashboard.py` and paste the code from below. This part of code will import all necessary modules, will define connection to the *drivendata_db* database and will retrieve all data from database. Also, will define the columns that are available for user menu to be displayed in dashboard.
+In directory `work_10` create a file `dashboard.py` and paste the code from below. This part of code will import all necessary modules, will define connection to the *drivendata_db* database and will retrieve all data from database. Also, will define the columns that are available for user menu to be displayed in dashboard.
 ```
 import dash
 import pandas as pd

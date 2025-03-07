@@ -68,7 +68,7 @@ git checkout --orphan deploy
 git rm -rf .
 ```
 ### Prepare code
-In `src_6` create a directory named `terraform` and it this directory create two files named `main.tf` and `s3.tf`.\
+In `work_6` create a directory named `terraform` and it this directory create two files named `main.tf` and `s3.tf`.\
 In `main.tf` file paste the content from below. It can be noticed that the content is the same as in previous terraform chapter.
 ```
 provider "aws" {
@@ -81,7 +81,7 @@ resource "aws_s3_bucket" "s3_bucket" {
   bucket = "drivendata-cicd-bucket"
 }
 ```
-In `src_6` create a directory named `.github` and it this directory create a subdirectory named `workflows`, and in the subdirectory create a file named `terraform-deploy.yml`. Paste the content from below.
+In `work_6` create a directory named `.github` and it this directory create a subdirectory named `workflows`, and in the subdirectory create a file named `terraform-deploy.yml`. Paste the content from below.
 ```
 name: DrivenData CI/CD pipeline
 

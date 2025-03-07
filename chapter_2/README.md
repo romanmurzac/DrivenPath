@@ -111,7 +111,7 @@ As the data from the previous year are not big (~30 MB) it is not required an ap
 #### Data generator
 To ingest historical data need to create a Framework (just a script at this moment; it will increase in complexity during next Chapters / Sprints).
 
-Create a file in `src_2` directory and name it `batch_generator.py`, create a subdirectory named `data_2`. Replace `<path_to_drivenpath>` with your local path to the project location.
+Create a file in `work_2` directory and name it `batch_generator.py`, create a subdirectory named `data_2`. Replace `<path_to_drivenpath>` with your local path to the project location.
 ```
 cd <path_to_drivenpath>\chapter_2\work_2
 type nul > batch_generator.py
@@ -274,7 +274,7 @@ if __name__ == "__main__":
     logging.info(f"Started batch processing for {date.today()}.")
 
     # Define the output file name with today's date.
-    output_file = f"chapter_2/src_2/data_2/batch_{date.today()}.csv"
+    output_file = f"chapter_2/work_2/data_2/batch_{date.today()}.csv"
 
     # Define number of records: first run - 10_372; next runs random number.
     if str(date.today()) == "2024-09-14":
