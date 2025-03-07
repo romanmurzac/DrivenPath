@@ -1,4 +1,4 @@
-venv
+venv/
 .terraform/
 .terraform.lock.hcl
 terraform.tfstate
@@ -10,3 +10,6 @@ producer_package/
 *.xml
 *.iml
 .idea
+dbt/logs/
+dbt/.user.yml
+dbt/target/
