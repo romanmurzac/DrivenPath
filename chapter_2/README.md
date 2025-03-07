@@ -363,7 +363,7 @@ unique_id character varying (100)
 In *Tables* section now is present *batch_first_load* table.\
 ![Image 2.13](../media/image_2.13.PNG)
 
-The table is created and the columns defined, but the table contains no data. In order to upload source data `Right-click` on table icon choose `Import/Export data` option and in *General* section select the CSV file to be loaded.\
+The table is created and the columns defined, but the table contains no data. In order to upload source data `Right-click` on table icon choose `Import/Export data` option and in *General* section select the CSV file to be loaded. Make sure that in the *Options* section the `Header` option is `On`.\
 ![Image 2.14](../media/image_2.14.PNG)
 
 If you move to the *Columns* section there should be visible all available columns. If the columns are not available make sure that table columns were defined correct. After all settings are done press `OK`.\
