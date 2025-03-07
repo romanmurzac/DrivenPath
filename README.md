@@ -86,13 +86,26 @@ cd <repository-path>
 git clone https://github.com/<your-username>/DrivenPath.git
 ```
 
-6. Create a Branch.\
+6. Create Virtual Environment.\
+Create virtual environment and activate it:
+```
+python3 -m venv venv
+venv/Scripts/activate
+```
+
+7. Install dependencies
+Install all dependecies packages necessary for Python:
+```
+pip install -r requirements.txt
+```
+
+8. Create a Branch.\
 It’s recommended to create a separate branch for each chapter. Replace `no` with the chapter number.
 ```
 git checkout -b chapter_<no>
 ```
 
-7. Commit and Push Changes.\
+9. Commit and Push Changes.\
 After each work session, commit your changes and push them to your branch.
 ```
 git add .
